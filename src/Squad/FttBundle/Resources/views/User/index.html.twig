@@ -1,0 +1,148 @@
+{% extends 'SquadFttBundle::layout.html.twig' %}
+{% block titre %} Listes des utilisateurs {% endblock %}
+{% block menu %}
+<ul class="nav menu">
+            <li><a href="{{ path('accueil')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Statistique</a></li>
+            <li><a href="{{ path('actualite')}}"><svg class="glyph stroked landscape"><use xlink:href="#stroked-landscape"/></svg> Actualites</a></li>
+            <li ><a href="{{ path('evenement')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Evenements</a></li>
+            <li><a href="{{ path('joueur')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Joueurs</a></li>
+            <li><a href="{{ path('match')}}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Matchs</a></li>
+            <li><a href="{{ path('arbitre')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Arbitres</a></li>
+            <li><a href="{{ path('stade')}}"><svg class="glyph stroked location pin"><use xlink:href="#stroked-location-pin"/></svg> Stades</a></li>
+            <li><a href="{{ path('club')}}"><svg class="glyph stroked home"><use xlink:href="#stroked-home"/></svg> Clubs</a></li>
+            <li><a href="{{ path('concour')}}"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Concours</a></li>
+            <li><a href="{{ path('formation')}}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Formations</a></li>
+            <li><a href="{{ path('gestionDopage')}}"><svg class="glyph  Sstroked eye"><use xlink:href="#stroked-eye"/></svg> Gestion Dopage</a></li>
+          <li  class="active"><a href="{{ path('user')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Utilisateur</a></li>
+        
+</ul>  
+{% endblock %}    
+{% block first1 -%}
+     {%set arbitre=0%}
+     {% set responsable=0 %}
+     {%set medecin=0 %}
+     {% set fan=0 %}
+     {% for entity in entities %}
+         {% if entity.roles[0]=="ROLE_ARBITRE"   %}
+            {%set arbitre=arbitre+1%}
+         {% elseif entity.roles[0]=="ROLE_RESPONSABLE" %}
+             {%set responsable = responsable+1 %}
+         {% elseif entity.roles[0]=="ROLE_MEDECIN" %}
+             {%set medecin = medecin+1%}
+         {% else %}
+              {%set fan = fan+1%}
+         {%endif%}      
+     {% endfor %}
+    
+    
+      <div class="col-lg-12">
+    <div class="row">
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-blue panel-widget ">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+			<svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">{{responsable}}</div>
+							<div class="text-muted">Responsable</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-orange panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+									<svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">{{arbitre}}</div>
+							<div class="text-muted">Arbitre</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-teal panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">{{medecin}}</div>
+							<div class="text-muted">Medecin</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-red panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+			<svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">{{fan}}</div>
+							<div class="text-muted">Fan</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.row-->
+
+   </div>
+   <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                   
+
+    <table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+        
+        <thead>
+            <tr>
+                <th>Utilisateur</th>
+                <th>email</th>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.username }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.prenom }}</td>
+                <td>{{ entity.nom }}</td>
+                <td>   {% if entity.roles[0]=="ROLE_ARBITRE"   %}
+              Arbitre 
+         {% elseif entity.roles[0]=="ROLE_RESPONSABLE" %}
+            Responsable
+         {% elseif entity.roles[0]=="ROLE_MEDECIN" %}
+            Medecin
+         {% else %}
+             Fan
+         {%endif%}       </td>
+               
+                <td>
+                {%if ( entity.roles[0]=="ROLE_AGENT") %}
+                    
+                 <a href="{{ path('afficherSolde', { 'id': entity.id })}}"><img width="32" src="{{asset('bundles/squadftt/tables/icon-moneybag.png')}}"></a>
+                 {%endif%} 
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary"> Ajouter un utilisateur </a>
+    {% endblock %}
+{% block first2 %} {% endblock %}    
+{% block first3 %} {% endblock %}    
+{% block first4 %} {% endblock %}    
+{% block second1%} {% endblock %}    
+{% block third1 %} {% endblock %}    
+{% block third2 %} {% endblock %}
+{% block third3 %} {% endblock %}
+{% block third4 %} {% endblock %}
+{% block fourth1 %}{% endblock %}
+{% block fourth2 %}{% endblock %}

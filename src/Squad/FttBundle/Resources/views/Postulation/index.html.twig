@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Postulation list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Idpostulation</th>
+                <th>Nbrematch</th>
+                <th>Anciennete</th>
+                <th>Cvarbitre</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('postulation_show', { 'id': entity.idPostulation }) }}">{{ entity.idPostulation }}</a></td>
+                <td>{{ entity.nbreMatch }}</td>
+                <td>{{ entity.anciennete }}</td>
+                <td>{{ entity.cvArbitre }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('postulation_show', { 'id': entity.idPostulation }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('postulation_edit', { 'id': entity.idPostulation }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('postulation_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

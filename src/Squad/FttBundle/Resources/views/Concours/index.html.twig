@@ -1,0 +1,90 @@
+
+{% extends 'SquadFttBundle::layout.html.twig' %}
+
+{% block header %}   
+<link href="{{asset('bundles/squadftt/css/bootstrap.min.css')}}" rel="stylesheet">
+<link href="{{asset('bundles/squadftt/css/datepicker3.css')}}" rel="stylesheet">
+<link href="{{asset('bundles/squadftt/css/styles.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block titre %} Listes des concours  {% endblock %}
+{% block menu %}
+<ul class="nav menu">
+            <li><a href="{{ path('accueil')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Statistique</a></li>
+            <li><a href="{{ path('actualite')}}"><svg class="glyph stroked landscape"><use xlink:href="#stroked-landscape"/></svg> Actualites</a></li>
+            <li ><a href="{{ path('evenement')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Evenements</a></li>
+            <li><a href="{{ path('joueur')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Joueurs</a></li>
+            <li><a href="{{ path('match')}}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Matchs</a></li>
+            <li><a href="{{ path('arbitre')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Arbitres</a></li>
+            <li><a href="{{ path('stade')}}"><svg class="glyph stroked location pin"><use xlink:href="#stroked-location-pin"/></svg> Stades</a></li>
+            <li><a href="{{ path('club')}}"><svg class="glyph stroked home"><use xlink:href="#stroked-home"/></svg> Clubs</a></li>
+            <li class="active" ><a href="{{ path('concour')}}"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Concours</a></li>
+            <li><a href="{{ path('formation')}}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Formations</a></li>
+            <li><a href="{{ path('gestionDopage')}}"><svg class="glyph stroked eye"><use xlink:href="#stroked-eye"/></svg> Gestion Dopage</a></li>
+         </ul>  
+{% endblock %}
+{% block first1 -%}
+   
+   <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                   
+
+    <table class="table table-striped" data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1"  data-sort-name="name" data-sort-order="desc">
+        
+        <thead >
+            <tr class="info">
+                
+                <th>Libelle</th>
+                <th>Date de debut</th>
+                <th>Lieu</th>
+                <th>Description</th>
+                <th>Frais de Participation</th>
+                <th>Date debut de depot</th>
+                <th>Date fin du depot</th>
+                <th>Type</th>
+                <th>Actions</th>
+             
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                
+                <td>{{ entity.libelleConcour }}</td>
+                <td>{% if entity.dateDebutConcour %}{{ entity.dateDebutConcour|date('Y-m-d') }}{% endif %}</td>
+                
+                <td>{{ entity.lieuConcour }}</td>
+                <td>{{ entity.descriptionConcours }}</td>
+                <td>{{ entity.fraisParticipation }}</td>
+                <td>{% if entity.dateDebutDepot %}{{ entity.dateDebutDepot|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if entity.dateFinDepot %}{{ entity.dateFinDepot|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ entity.typeConcour }}</td>
+                <td>
+               
+                        <a   href="{{ path('concour_show', { 'idConcour': entity.idConcour }) }}" class="label label-primary">Afficher</a>
+                    
+                        <a href="{{ path('concour_edit', { 'idConcour': entity.idConcour }) }}" class="label label-warning">Modifier</a>
+                   
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+  <div class="navigation">
+    {{ knp_pagination_render(entities) }}
+  </div>  
+  <a href="{{ path('concour_new') }}" class="btn btn-primary"> Ajouter un Concours </a>
+  
+  
+    {% endblock %}
+{% block first2 %}{% endblock %}    
+{% block first3 %}{% endblock %}    
+{% block first4 %}{% endblock %}    
+{% block second1 %}{% endblock %}    
+{% block third1 %}{% endblock %}    
+{% block third2 %}{% endblock %}
+{% block third3 %}{% endblock %}
+{% block third4 %}{% endblock %}
+{% block fourth1 %}{% endblock %}
+{% block fourth2 %}{% endblock %}

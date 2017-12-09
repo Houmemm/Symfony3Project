@@ -1,0 +1,46 @@
+{% extends 'SquadFttBundle::layout.html.twig' %}
+{% block titre %} Modifier une Actualite  {% endblock %}
+{% block menu %}
+    <ul class="nav menu">
+        <li><a href="{{ path('accueil')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Statistique</a></li>
+        <li class="active" ><a href="{{ path('actualite')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Actualites</a></li>
+        <li><a href="{{ path('evenement')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Evenements</a></li>
+        <li><a href="{{ path('joueur')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Joueurs</a></li>
+        <li><a href="{{ path('match')}}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Matchs</a></li>
+        <li><a href="{{ path('arbitre')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Arbitres</a></li>
+        <li><a href="{{ path('stade')}}"><svg class="glyph stroked location pin"><use xlink:href="#stroked-location-pin"/></svg> Stades</a></li>
+        <li><a href="{{ path('club')}}"><svg class="glyph stroked home"><use xlink:href="#stroked-home"/></svg> Clubs</a></li>
+        <li><a href="{{ path('concour')}}"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Concours</a></li>
+        <li><a href="{{ path('formation')}}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Formations</a></li>
+        <li><a href="{{ path('gestionDopage')}}"><svg class="glyph stroked eye"><use xlink:href="#stroked-eye"/></svg> Gestion Dopage</a></li>
+    </ul>  
+{% endblock %}    
+{% block first1 -%}
+         {{form_start(edit_form)}}
+         {{ form_row(edit_form.titre, { 'attr': {'class': 'form-control'} }   ) }}
+         {{ form_row(edit_form.corps, { 'attr': {'class': 'form-control'} }   ) }}
+         {{ form_row(edit_form.etat, { 'attr': {'class': 'form-control'} }   ) }}
+         {{ form_row(edit_form.file) }} 
+         {{ form_row(edit_form.submit) }} 
+    {{ form(edit_form, {'attr' : { 'style' : 'display: inline-block' }}) }}
+ <br>
+    <ul class="record_actions">
+        
+        <a href="{{ path('actualite') }}" class="btn icon-btn btn-primary" >
+                Retour a la liste des actualites
+            </a>
+                
+         <br>
+        {{ form(delete_form, {'attr' : { 'style' : 'display: inline-block' }}) }}
+    </ul>
+{% endblock %}
+{% block first2 %}{% endblock %}    
+{% block first3 %}{% endblock %}    
+{% block first4 %}{% endblock %}    
+{% block second1 %}{% endblock %}    
+{% block third1 %}{% endblock %}    
+{% block third2 %}{% endblock %}
+{% block third3 %}{% endblock %}
+{% block third4 %}{% endblock %}
+{% block fourth1 %}{% endblock %}
+{% block fourth2 %}{% endblock %}

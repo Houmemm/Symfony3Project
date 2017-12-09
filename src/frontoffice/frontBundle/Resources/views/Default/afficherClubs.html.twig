@@ -1,0 +1,28 @@
+{% extends "frontofficefrontBundle::MainLayout.html.twig" %}
+
+{% block main %}
+
+    <section class="drawer">
+        <div class="col-md-12 size-img back-laoula" style="
+             background:transparent url({{ asset( 'uploads/'~entity.imgClub) }}) no-repeat bottom center;">
+            <div class="effect-cover">
+                <h1 class="txt-advert animated fadeInUp">{{entity.libelleClub}}</h1>
+                <h3>Ce Club se trouve à : {{entity.emplacementClub}}</h3>
+                <h4> Nombre de Terrains : {{entity.nbreTerrains}}</h4>
+                <p>
+                    {{entity.descriptionClub}}</p>
+            </div>
+        </div>
+
+        <section id="single_news" class="container secondary-page">
+            <div class="general general-results">
+                <div class="top-score-title col-md-9">
+                    <h3>{{entity.libelleClub}}<span class="point-little">.</span></h3>
+
+
+                </div><!--Close Top Match-->
+        </section>
+    </section>
+
+
+{% endblock %}

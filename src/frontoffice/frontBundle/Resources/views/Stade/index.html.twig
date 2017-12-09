@@ -1,0 +1,70 @@
+{% extends 'frontofficefrontBundle::MainLayout.html.twig' %}
+
+{% block header %}
+
+{% endblock %}
+{% block main %}
+   {# <section id="summary" class="container secondary-page">
+      <div class="general general-results tournaments">
+   <div class="top-score-title right-score col-md-9">#}
+   
+   
+            <div class="col-md-12 size-img" style="background:transparent url({{asset('uploads/eae83bbc8e6ba3cbf26c9b40e96fabc78c2bcb7f.jpeg')}}) no-repeat center center;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;">
+                           
+                
+               <div class="effect-cover">
+                    <h3 class="txt-advert animated fadeInUp">Stade Club Tunisie</h3>
+                    <p class="txt-advert-sub">L'important est de tirer une leçon de chaque échec. - John McEnroe</p>
+                </div>
+           </div>
+    
+
+   <section id="shop" class="container secondary-page">
+            <div class="general general-results">
+                <div class="top-score-title right-score col-md-9">
+
+
+                <h3>Tunisie <span>Stade</span><span class="point-little">.</span></h3>
+                
+        
+ <div class="col-md-12 shops-top" style="margin-bottom: 50px">
+     {% for entity in entities %}
+         <div class="col-md-4">
+            <img  style="opacity: 1" src="{{ asset('uploads/'~ entity.path) }}"  height="164" width="256">
+            <div class="slide-news-bottom"><a href="{{ path('frontofficefront_stadeMap', { 'id': entity.idStade }) }}">{{ entity.libelleStade }}</a><a class="i-ico" href="#"><i class="fa fa-angle-double-right"></i></a></div>
+            </br>
+            
+            {#<span><div class="prod-buy"><a href="{{ path('frontofficefront_stadeMap', { 'id': entity.idStade }) }}">{{ entity.libelleStade }}</a></div></span>	 #}               
+         </div>
+        {% endfor %}
+ </div></div>
+ 
+   
+     <div class="col-md-3 right-column">
+           <div class="top-score-title col-md-12 right-title">
+                <h3>Latest News</h3>
+                <div class="right-content">
+                    <p class="news-title-right">A New Old Life</p>
+                    <p class="txt-right">Simon, who�s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
+                    <a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
+                </div>
+                <div class="right-content">
+                    <p class="news-title-right">A New Old Life</p>
+                    <p class="txt-right">Simon, who�s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
+                    <a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
+                </div>
+                <div class="right-content">
+                    <p class="news-title-right">A New Old Life</p>
+                    <p class="txt-right">Simon, who�s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
+                    <a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
+                </div>
+           </div>
+      </div> </section>
+{% endblock %}
+{% block jscript %}
+
+{% endblock %}

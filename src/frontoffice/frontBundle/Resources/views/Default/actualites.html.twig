@@ -1,0 +1,31 @@
+{% extends 'frontofficefrontBundle::MainLayout.html.twig' %}
+
+{% block main %}
+
+
+    {% for entity in entities%}
+        <section id="news" class="container secondary-page">
+            <div class="general general-results players">
+                {%if entity.etat == 'Publier' %}
+
+                    <div class="col-md-12 news-page " >
+
+                        <img src="{{ asset( 'uploads/'~entity.photo) }}" width="270*180" class="img-djoko" >  </img> 
+
+
+                        <div class="col-md-10 data-news-pg">
+                            <p class="news-dd">{{entity.dateredaction|date('d-m-y')}}</p>
+                            <h3>{{entity.titre}}</h3>
+                            <p>
+                                {{entity.corps}}</p>
+
+                            <div class="col-md-12 news-more"><a href="{{path('frontofficefront_news_show',{'id':entity.idactualite})}}" class="ca-more"><i class="fa fa-angle-double-right"></i>Afficher la suite...</a></div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+    </section>
+
+{% endblock %}

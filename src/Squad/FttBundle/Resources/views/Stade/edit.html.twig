@@ -1,0 +1,49 @@
+{% extends 'SquadFttBundle::layout.html.twig' %}
+{% block titre %}
+Stade
+{% endblock%}
+
+{% block menu %}
+<ul class="nav menu">
+            <li><a href="{{ path('accueil')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Statistique</a></li>
+            <li><a href="{{ path('actualite')}}"><svg class="glyph stroked landscape"><use xlink:href="#stroked-landscape"/></svg> Actualites</a></li>
+            <li><a href="{{ path('evenement')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Evenements</a></li>
+            <li><a href="{{ path('joueur')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Joueurs</a></li>
+            <li><a href="{{ path('match')}}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Matchs</a></li>
+            <li><a href="{{ path('arbitre')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Arbitres</a></li>
+            <li class="active"><a href="{{ path('stade')}}"><svg class="glyph stroked location pin"><use xlink:href="#stroked-location-pin"/></svg> Stades</a></li>
+            <li><a href="{{ path('club')}}"><svg class="glyph stroked home"><use xlink:href="#stroked-home"/></svg> Clubs</a></li>
+            <li><a href="{{ path('concour')}}"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Concours</a></li>
+            <li><a href="{{ path('sanction')}}"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"/></svg> Sanction</a></li>
+            <li><a href="{{ path('formation')}}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Formations</a></li>
+            <li><a href="{{ path('rapport')}}"><svg class="glyph stroked eye"><use xlink:href="#stroked-eye"/></svg> Gestion Dopage</a></li>
+         </ul>  
+{% endblock %} 
+{% block first1 %}{% endblock %}
+
+
+{% block first2 %}{% endblock %}
+{% block first3 %}{% endblock %}
+{% block first4 %}{% endblock %}
+{% block second1 -%}
+
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading"> Modifier un stade </div>
+            <div class="col-lg-6">
+                <div class="panel-body">  
+
+    {{ form(edit_form) }}
+    
+
+        
+    </div>
+            </div>
+{% endblock %}  
+    {% block third1 %}{% endblock %}
+    {% block third2 %}{% endblock %}
+{% block third3 %}{% endblock %}
+{% block third4 %}{% endblock %}
+{% block fourth1 %}{% endblock %}
+{% block fourth2 %}{% endblock %}{# empty Twig template #}
+

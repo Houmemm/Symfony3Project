@@ -1,0 +1,72 @@
+{% extends 'SquadFttBundle::layout.html.twig' %}
+{% block titre %} Listes des formations  {% endblock %}
+{% block menu %}
+<ul class="nav menu">
+            <li><a href="{{ path('accueil')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Statistique</a></li>
+            <li><a href="{{ path('actualite')}}"><svg class="glyph stroked landscape"><use xlink:href="#stroked-landscape"/></svg> Actualites</a></li>
+            <li ><a href="{{ path('evenement')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Evenements</a></li>
+            <li><a href="{{ path('joueur')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Joueurs</a></li>
+            <li><a href="{{ path('match')}}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Matchs</a></li>
+            <li><a href="{{ path('arbitre')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Arbitres</a></li>
+            <li><a href="{{ path('stade')}}"><svg class="glyph stroked location pin"><use xlink:href="#stroked-location-pin"/></svg> Stades</a></li>
+            <li><a href="{{ path('club')}}"><svg class="glyph stroked home"><use xlink:href="#stroked-home"/></svg> Clubs</a></li>
+            <li><a href="{{ path('concour')}}"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Concours</a></li>
+            <li class="active" ><a href="{{ path('formation')}}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Formations</a></li>
+            <li><a href="{{ path('gestionDopage')}}"><svg class="glyph stroked eye"><use xlink:href="#stroked-eye"/></svg> Gestion Dopage</a></li>
+         </ul>  
+{% endblock %}
+{% block first1 -%}
+   
+   <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                   
+
+    <table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1"  data-sort-name="name" data-sort-order="desc">
+        
+        <thead>
+            <tr>
+                <th>Id formation</th>
+                <th>Libelle</th>
+                <th>grade</th>
+                <th>dateDebutFormation</th>
+                <th>dateFinFormation</th>
+                <th>fraisFormation</th>
+                <th>Actions</a>
+                
+          
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.idFormation }}</td>
+                <td>{{ entity.libelleFormation }}</td>
+                <td>{{ entity.grade }}</td>
+                <td>{% if entity.dateDebutFormation %}{{ entity.dateDebutFormation|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if entity.dateFinFormation %}{{ entity.dateFinFormation|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ entity.fraisFormation }}</td>
+                
+                <td>
+                
+                        <a href="{{ path('formation_show', { 'idFormation': entity.idFormation }) }}" class="label label-success btn-md">Afficher</a>
+                    
+                        <a href="{{ path('formation_edit', { 'idFormation': entity.idFormation }) }}" class="label label-warning btn-md">Modifier</a>
+                    
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+  <a href="{{ path('formation_new') }}" class="btn btn-primary"> Ajouter une formation </a>
+    {% endblock %}
+{% block first2 %}{% endblock %}    
+{% block first3 %}{% endblock %}    
+{% block first4 %}{% endblock %}    
+{% block second1 %}{% endblock %}    
+{% block third1 %}{% endblock %}    
+{% block third2 %}{% endblock %}
+{% block third3 %}{% endblock %}
+{% block third4 %}{% endblock %}
+{% block fourth1 %}{% endblock %}
+{% block fourth2 %}{% endblock %}

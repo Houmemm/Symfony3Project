@@ -1,0 +1,157 @@
+{% extends "frontofficefrontBundle::MainLayout.html.twig" %}
+{% block header %}
+    <link href= "{{asset('bundles/squadftt/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('bundles/squadftt/css/styles.css')}}" rel="stylesheet">
+{% endblock %}
+
+
+{% block main %}   
+    <div class="top-score-title right-score col-md-9">
+        <div class="top-score-title player-vs">
+            <h3>{% if entity.stadeStade %} {{entity.stadeStade.libelleStade}} {% endif %} - <span>{{entity.tourTour.evenementEvenement.libelleEvenement}}</span><span class="point-little">.</span></h3>
+            <div class="main">
+                <div class="tabs standard">
+                    <div class="tab-content">
+                        <div class="effect-color">
+                            <div class="tab active">
+                                <div class="clear"></div>
+                                <div class="col-md-12 player-photo">
+                                    <img class="img-face img-mm1" src="{{ asset('uploads/joueurs/'~entity.joueurs[0].path)}}" width="120" height='114'alt="" />
+                                    <img class="img-face img-mm2" src="{{ asset('uploads/joueurs/'~entity.joueurs[1].path)}}" width="120" height='114'alt="" />
+                                </div>
+                                <div class="col-md-12 play-vs">
+                                    <div class="result-name">
+                                        <span>{% if entity.joueurs %}{{ entity.joueurs[0].nom}} {{ entity.joueurs[0].prenom}}{% endif %}</span> 
+                                        <span class="txt-vs">vs</span> 
+                                        <span>{% if entity.joueurs %}{{ entity.joueurs[1].nom}} {{ entity.joueurs[1].prenom}}{% endif %}</span>
+                                        <br>{% if entity.sets|length == 0%}
+                                        <span>Quota :{{ q1|number_format(2, '.', ',') }}</span>
+                                        <span>  -  </span>
+                                        <span>Quota :{{ q2|number_format(2, '.', ',') }}</span>
+                                        <br>
+                                        <span><a href="{{ path('front_matchtennis_montant', { 'id': entity.idMatch,'joueur':entity.joueurs[0].cinJoueur}) }}">
+                                                Parier Sur  {% if entity.joueurs %}{{ entity.joueurs[0].nom}}{% endif %}
+                                            </a>
+                                        </span>
+                                        <span> - </span>
+                                        <span><a href="{{ path('front_matchtennis_montant', { 'id': entity.idMatch,'joueur':entity.joueurs[1].cinJoueur}) }}">
+                                                Parier Sur  {% if entity.joueurs %}{{ entity.joueurs[1].nom}}{% endif %}
+                                            </a>
+                                        </span>{% endif %}
+                                    </div>
+
+                                </div>
+                                <div class="clear"></div>
+                                <div class="result-name"></div>
+                                <div class="col-md-12 play-vs">{% if entity.sets|length>0 %}
+                                    <table id="result-table">
+                                        <tr>
+                                            <td align="center">Sets</td>
+                                            {% if entity.sets|length>0 %}<td class="fpt" align="center">1</td> {% endif %}
+                                            {% if entity.sets|length>1 %}<td class="fpt" align="center">2</td> {% endif %}
+                                            {% if entity.sets|length>2 %}<td class="fpt" align="center">3</td> {% endif %}
+                                            {% if entity.sets|length>3 %}<td class="fpt" align="center">4</td> {% endif %}
+                                            {% if entity.sets|length>4 %}<td class="fpt" align="center">5</td> {% endif %}
+                                            {% if entity.sets|length>5 %}<td class="fpt" align="center">6</td> {% endif %}
+                                            {% if entity.sets|length>6 %}<td align="center">7</td> {% endif %}
+                                        <tr>
+                                            <td class="fpt" align="center">{% if entity.joueurs %}{{ entity.joueurs[0].nom}} {{ entity.joueurs[0].prenom}}{% endif %}</td>
+                                            {% if entity.sets|length>0 %}<td class="fpt" align="center">{{ entity.sets[0].scorej1}}</td> {% endif %}
+                                            {% if entity.sets|length>1 %}<td class="fpt" align="center">{{ entity.sets[1].scorej1}}</td> {% endif %}
+                                            {% if entity.sets|length>2 %}<td class="fpt" align="center">{{ entity.sets[2].scorej1}}</td> {% endif %}
+                                            {% if entity.sets|length>3 %}<td class="fpt" align="center">{{ entity.sets[3].scorej1}}</td> {% endif %}
+                                            {% if entity.sets|length>4 %}<td class="fpt" align="center">{{ entity.sets[4].scorej1}}</td> {% endif %}
+                                            {% if entity.sets|length>5 %}<td class="fpt" align="center">{{ entity.sets[5].scorej1}}</td> {% endif %}
+                                            {% if entity.sets|length>6 %}<td  align="center">{{ entity.sets[6].scorej1}}</td> {% endif %}
+                                        </tr>
+                                        <tr>
+                                            <td class="fpt" align="center">{% if entity.joueurs %}{{ entity.joueurs[1].nom}} {{ entity.joueurs[1].prenom}}{% endif %}</td>
+                                            {% if entity.sets|length>0 %}<td class="fpt" align="center">{{ entity.sets[0].scorej2}} </td>{% endif %}
+                                            {% if entity.sets|length>1 %}<td class="fpt" align="center">{{ entity.sets[1].scorej2}} </td>{% endif %}
+                                            {% if entity.sets|length>2 %}<td class="fpt" align="center">{{ entity.sets[2].scorej2}} </td>{% endif %}
+                                            {% if entity.sets|length>3 %}<td class="fpt" align="center">{{ entity.sets[3].scorej2}} </td>{% endif %}
+                                            {% if entity.sets|length>4 %}<td class="fpt" align="center">{{ entity.sets[4].scorej2}} </td>{% endif %}
+                                            {% if entity.sets|length>5 %}<td class="fpt" align="center">{{ entity.sets[5].scorej2}} </td>{% endif %}
+                                            {% if entity.sets|length>6 %}<td align="center">{{ entity.sets[6].scorej2}} </td>{% endif %}
+                                        </tr>
+                                        {% endif %}</table>
+                                    </div>
+                                </div>   
+                                <div>{% if pari|length>0%}
+                                    <div class="col-md-12 play-vs">
+                                        <h3>Top 5 des Mises</h3>
+                                        <table id="result-table">
+                                            <tr>
+                                                <td><b> Utilisateurs </b></td>
+                                                <td><b> Montants </b></td>
+                                                <td><b> Joueurs </b></td>
+                                            </tr>
+                                            {% for p in pari %}
+                                                <tr>
+                                                    <td class="fpt">{{ p.userUser.nom}} {{ p.userUser.prenom}}</td>
+                                                    <td class="fpt">{{ p.montant}}</td>
+                                                    <td class="fpt">
+                                                        {% if p.q1==0 %}{{ entity.joueurs[1].nom}} {{ entity.joueurs[1].prenom}}{% endif %}
+                                                        {% if p.q2==0 %}{{ entity.joueurs[0].nom}} {{ entity.joueurs[0].prenom}}{% endif %}
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+
+                                    {% endif %}
+                                    </div>
+                                </div>
+                            </div>                                
+                        </div>
+                    </div> 
+                </div>
+            </div><!--Close Top Match-->
+            
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body easypiechart-panel">
+                            <h4>{% if entity.joueurs %}{{ entity.joueurs[0].nom}} {{ entity.joueurs[0].prenom}}{% endif %} </h4>
+                            <div class="easypiechart" id="easypiechart-orange" data-percent="{{pj1}}" ><span class="percent">{{pj1|number_format(2, '.', ',')}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body easypiechart-panel">
+                            <h4>{% if entity.joueurs %}{{ entity.joueurs[1].nom}} {{ entity.joueurs[1].prenom}}{% endif %} </h4>
+                            <div class="easypiechart" id="easypiechart-blue" data-percent="{{pj2}}" ><span class="percent">{{pj2|number_format(2, '.', ',')}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body easypiechart-panel">
+                            <h4>{% if entity.joueurs %}{{ entity.joueurs[0].nom}} VS {{ entity.joueurs[1].nom}}{% endif %} </h4>
+                            <div class="easypiechart" id="easypiechart-red" data-percent="{{pvs}}" ><span class="percent">{{pvs|number_format(2, '.', ',')}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+
+            {% endblock %}
+
+
+                {% block jscript %}
+
+                    <script src="{{asset('bundles/squadftt/js/jquery-1.11.1.min.js')}}"></script>
+                    <script src="{{asset('bundles/squadftt/js/bootstrap.min.js')}} "></script>
+                    <script src="{{asset('bundles/squadftt/js/chart.min.js')}}"></script>
+                    <script src="{{asset('bundles/squadftt/js/chart-data.js')}}"></script>
+                    <script src="{{asset('bundles/squadftt/js/easypiechart.js')}}"></script>
+                    <script src="{{asset('bundles/squadftt/js/easypiechart-data.js')}}"></script>
+                    <script src="{{asset('bundles/squadftt/js/bootstrap-datepicker.js')}}"></script>
+                    <script src="{{asset('bundles/squadftt/js/bootstrap-table.js')}}"></script>
+
+
+                {% endblock %}

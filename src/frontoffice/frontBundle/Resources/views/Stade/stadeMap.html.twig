@@ -1,0 +1,61 @@
+{% extends  'frontofficefrontBundle::MainLayout.html.twig' %}
+
+{% block header %}
+
+{% endblock %}
+{% block main %}
+    <section id="contact" class="secondary-page">
+      <div class="general">
+           <!--Google Maps-->
+            <div id="map_container">
+	    {% include 'frontofficefrontBundle:Stade:stadeMaps.html.twig' %}
+            </div>
+            
+          <div class="container">
+           <div class="content-link col-md-12">
+                  <div id="contact_form" class="top-score-title col-md-9 align-center">
+                    <h3>Stade <span>info</span><span class="point-little">.</span></h3>
+                                <form>
+                                    
+                                    <div class="name">
+                                        <label for="Nom"><b><big>  Nom du stade:</big></b></label><div class="clear"></div>
+                                        <label for="Nom"> {{ entity.libelleStade }}</label><div class="clear"></div>
+                                        
+                                    </div>
+                                    <div class="email">
+                                        <label for="Emplacement"><b><big> Emplacement du stade:</big></b></label><div class="clear"></div>
+                                        <label for="Nom"> {{ entity.emplacement }}</label><div class="clear"></div>
+                                    </div>
+                                    <div class="message">
+                                        <label for="Type"><b><big> Type de terrain:</big></b></label></br>
+                                        <label for="Nom"> {{ entity.typeTerrains }}</label><div class="clear"></div>
+                                    </div>
+                                    <div class="message">
+                                        <label for="capacite"><b><big> Capacite:</big></b></label>
+                                        <label for="Nom"> {{ entity.capacite }}</label><div class="clear"></div>
+                                        
+                                    </div>
+                      
+                                  </form>
+                              </div>
+                     <div id="info-company" class="top-score-title col-md-3 align-center">
+                        <h3></h3>
+                        <img src="{{ asset('uploads/'~ entity.path) }}" />
+                        <div class="col-md-12">
+                          
+                        </div>            
+                    </div>
+                </div>
+                </div>
+                </div>
+                </section>
+
+{% endblock %}
+
+
+
+
+
+{% block jscript %}
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'SquadFttBundle::layout.html.twig' %}
+{% block titre %}   {% endblock %}
+{% block menu %}
+    <ul class="nav menu">
+        <li><a href="{{ path('accueil')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Statistique</a></li>
+        <li><a href="{{ path('actualite')}}"><svg class="glyph stroked landscape"><use xlink:href="#stroked-landscape"/></svg> Actualites</a></li>
+        <li class="active" ><a href="{{ path('evenement')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Evenements</a></li>
+        <li><a href="{{ path('joueur')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Joueurs</a></li>
+        <li><a href="{{ path('match')}}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Matchs</a></li>
+        <li><a href="{{ path('arbitre')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Arbitres</a></li>
+        <li><a href="{{ path('stade')}}"><svg class="glyph stroked location pin"><use xlink:href="#stroked-location-pin"/></svg> Stades</a></li>
+        <li><a href="{{ path('club')}}"><svg class="glyph stroked home"><use xlink:href="#stroked-home"/></svg> Clubs</a></li>
+        <li><a href="{{ path('concour')}}"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Concours</a></li>
+        <li><a href="{{ path('formation')}}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Formations</a></li>
+        <li><a href="{{ path('gestionDopage')}}"><svg class="glyph stroked eye"><use xlink:href="#stroked-eye"/></svg> Gestion Dopage</a></li>
+        <li><a href="{{ path('user')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Utilisateur</a></li>
+
+    </ul>  
+{% endblock %}       
+{% block first1 %}
+
+
+</div> 
+<div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            {{ entity.libelleEvenement }}
+        </div>
+        <div class="panel-body">  <!-- Affichage des donn�es  -->
+            <p> {{ entity.libelleEvenement }} aura lieu a  {{ entity.site }} 
+                de {{ entity.dateDebut|date('Y-m-d') }}
+                a {{ entity.dateFin|date('Y-m-d') }} 
+                il s'agit d'une competition {{ entity.type }} 
+                qui contiendra  {{ entity.nbreJoueur }} joueurs.             {{ entity.imageEve }}   </p>
+        </div>
+    </div>
+</div>
+
+        
+        <row>     
+    <div style="display: table ; vertical-align: middle;"> 
+        {% set x =  -1  %} 
+        {% set y2=0 %}
+        {% set c=0 %}
+      {% set y =  -1  %}
+        {% for j in  tour %}
+           {% set c=c+1 %}
+            <div style="display: table-cell ; vertical-align: middle; padding-right: 30px"><!--Création tour-->
+              {% for i in  1..j.nbreMatch  %}
+                {%  set x = x+1 %} <!--Compteur pour match-->
+                {%  set y = y+2 %} <!--Compteur pour matchHasJoueur-->              
+               
+                <div style="padding: 5px 5px 5px 5px; border-right: 1px solid #5e5e5e"><!--Creation match-->
+                  {% if matchHasJoueur[y].matchMatch is defined %}
+                    {% if match[x].getidMatch == matchHasJoueur[y].matchMatch.getIdMatch  %}
+                    <a href="#"> <span class="label label-primary" style="font-size: 15px;  " > 
+                        {{ matchHasJoueur[y].joueurCin.nom }} Vs {{ matchHasJoueur[y2].joueurCin.nom }}
+                    | {{ match[x].dateMatch|date('Y-m-d') }} </a>
+                    </span></div>
+                    <br>
+                    
+                    {% else %}
+                  <a href="#">  <span class="label label-primary" style="font-size: 15px" > En Attente
+                    {{ match[x].dateMatch|date('Y-m-d') }}
+                    </span> </a> </div>
+                    <br>          
+                       
+                    
+                    {% endif %}
+              {% else %}
+                   <span class="label label-primary" style="font-size: 15px" > En Attente
+                    {{ match[x].dateMatch|date('Y-m-d') }}
+                    </span></div>
+                    <br>
+                  {%endif%}
+                    {% set y2=y2+2 %}
+                {% endfor %}
+            
+        </div>	
+    {% endfor %}
+</div> 
+{% endblock %}
+{% block first2 %}{% endblock %}
+{% block first3 %}{% endblock %}
+{% block first4 %}{% endblock %}
+{% block second1 -%}
+ 
+</row>
+            <img src="{{ asset( 'uploads/l2.png') }}">  </img> 
+            
+{% endblock %}
+{% block third1 %}
+
+{% endblock %}    
+{% block third2 %}{% endblock %}
+{% block third3 %}{% endblock %}
+{% block third4 %}{% endblock %}
+{% block fourth1 %}{% endblock %}
+{% block fourth2 %}{% endblock %}

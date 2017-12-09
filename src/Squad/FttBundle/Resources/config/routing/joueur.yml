@@ -1,0 +1,30 @@
+joueur:
+    path:     /
+    defaults: { _controller: "SquadFttBundle:Joueur:index" }
+
+joueur_show:
+    path:     /{id}/show
+    defaults: { _controller: "SquadFttBundle:Joueur:show" }
+
+joueur_new:
+    path:     /new
+    defaults: { _controller: "SquadFttBundle:Joueur:new" }
+
+joueur_create:
+    path:     /create
+    defaults: { _controller: "SquadFttBundle:Joueur:create" }
+    methods:  POST
+
+joueur_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SquadFttBundle:Joueur:edit" }
+
+joueur_update:
+    path:     /{id}/update
+    defaults: { _controller: "SquadFttBundle:Joueur:update" }
+    methods:  [POST, PUT]
+
+joueur_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SquadFttBundle:Joueur:delete" }
+    methods:  [POST, DELETE]

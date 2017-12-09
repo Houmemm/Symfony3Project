@@ -1,0 +1,444 @@
+{% extends "frontofficefrontBundle::MainLayout.html.twig" %}
+{% block main %}
+
+    <section class="drawer">
+        <div class="col-md-12 size-img back-img">
+            <div class="effect-cover">
+                <h3 class="txt-advert animated fadeInUp">2015-2016 FTT Tunisia</h3>
+                <p class="txt-advert-sub animated"> Nos meilleurs tournois pour la saison 2015-2016  </p>
+            </div>
+        </div>
+        <section id="summary" class="container secondary-page">
+            <div class="general general-results tournaments">
+
+                <div id="c-calend" class="top-score-title right-score col-md-9">
+                    <h3>FTT<span>-CALENDRIER</span><span class="point-little">.</span></h3>
+                    <div class="accordion accordion-open" id="section1"><i class="fa fa-calendar-o"></i>JANVIER<span></span></div>
+                    <div class="acc-content">
+                        <div class="col-md-1 acc-title">Photo</div>
+                        <div class="col-md-2 acc-title">Date Debut</div>
+                        <div class="col-md-3 acc-title">Tournois</div>
+                        <div class="col-md-2 acc-title">Emplacement </div>
+                        <div class="col-md-2 acc-title"> Nombre  </div>
+                        <div class="col-md-2 acc-title">Gagnant</div>
+                        {%for entity in entities %}
+                            {% if entity.dateDebut|date('U') < '2016-2-1'|date('U') %} 
+                                <div class="acc-footer"></div>
+                                <div class="col-md-1 timg"><img src="./WT TENNIS_files/atp_img.png" alt=""></div>
+                                <div class="col-md-2 t1"><p> {{entity.dateDebut|date('Y-m-d')}}</p></div>
+                                <div class="col-md-3 t2"><p>{{ entity.libelleEvenement }}</p> </div>
+                                <div class="col-md-2 t3"><p>{{ entity.site }}</p></div>
+                                <div class="col-md-2 t4"><p> {{ entity.nbreJoueur }}</p></div>
+                                <div class="col-md-2 t5"><p> _ </p></div>
+
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="accordion accordion-close" id="section2"><i class="fa fa-calendar-o"></i>FEVRIER<span></span></div>
+                    <div class="acc-content" style="display: none;">
+                        <div class="col-md-1 acc-title">Photo</div>
+                        <div class="col-md-2 acc-title">Date Debut</div>
+                        <div class="col-md-3 acc-title">Tournois</div>
+                        <div class="col-md-2 acc-title">Emplacement </div>
+                        <div class="col-md-2 acc-title"> Nombre  </div>
+                        <div class="col-md-2 acc-title">Gagnant</div>
+
+                        {%for entity in entities %}
+                            {% if  entity.dateDebut|date('U') >= '2016-2-1'|date('U') and entity.dateDebut|date('U') < '2016-3-1'|date('U') %} 
+                                <div class="acc-footer"></div>
+                                <div class="col-md-1 timg"><img src="./WT TENNIS_files/atp_img.png" alt=""></div>
+                                <div class="col-md-2 t1"><p> {{entity.dateDebut|date('Y-m-d')}}</p></div>
+                                <div class="col-md-3 t2"><p>{{ entity.libelleEvenement }}</p> </div>
+                                <div class="col-md-2 t3"><p>{{ entity.site }}</p></div>
+                                <div class="col-md-2 t4"><p> {{ entity.nbreJoueur }}</p></div>
+                                <div class="col-md-2 t5"><p> _ </p></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="accordion accordion-close" id="section3"><i class="fa fa-calendar-o"></i> MARS <span></span></div>
+                    <div class="acc-content" style="display: none;">
+                        <div class="col-md-1 acc-title">Photo</div>
+                        <div class="col-md-2 acc-title">Date Debut</div>
+                        <div class="col-md-3 acc-title">Tournois</div>
+                        <div class="col-md-2 acc-title">Emplacement </div>
+                        <div class="col-md-2 acc-title"> Nombre  </div>
+                        <div class="col-md-2 acc-title">Gagnant</div>
+                        {%for entity in entities %}
+                            {% if  entity.dateDebut|date('U') >= '2016-3-1'|date('U') and entity.dateDebut|date('U') < '2016-4-1'|date('U')  %} 
+                                <div class="acc-footer"></div>
+                                <div class="col-md-1 timg"><img src="./WT TENNIS_files/atp_img.png" alt=""></div>
+                                <div class="col-md-2 t1"><p> {{entity.dateDebut|date('Y-m-d')}}</p></div>
+                                <div class="col-md-3 t2"><p>{{ entity.libelleEvenement }}</p> </div>
+                                <div class="col-md-2 t3"><p>{{ entity.site }}</p></div>
+                                <div class="col-md-2 t4"><p> {{ entity.nbreJoueur }}</p></div>
+                                <div class="col-md-2 t5"><p> _ </p></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="accordion accordion-close" id="section4"><i class="fa fa-calendar-o"></i>AVRIL<span></span></div>
+                    <div class="acc-content" style="display: none;">
+                        <div class="col-md-1 acc-title">Photo</div>
+                        <div class="col-md-2 acc-title">Date Debut</div>
+                        <div class="col-md-3 acc-title">Tournois</div>
+                        <div class="col-md-2 acc-title">Emplacement </div>
+                        <div class="col-md-2 acc-title"> Nombre  </div>
+                        <div class="col-md-2 acc-title">Gagnant</div>
+                        {%for entity in entities %}
+                            {% if entity.dateDebut|date('U') >= '2016-4-1'|date('U') and entity.dateDebut|date('U') < '2016-5-1'|date('U') %} 
+                                <div class="acc-footer"></div>
+                                <div class="col-md-1 timg"><img src="./WT TENNIS_files/atp_img.png" alt=""></div>
+                                <div class="col-md-2 t1"><p> {{entity.dateDebut|date('Y-m-d')}}</p></div>
+                                <div class="col-md-3 t2"><p>{{ entity.libelleEvenement }}</p> </div>
+                                <div class="col-md-2 t3"><p>{{ entity.site }}</p></div>
+                                <div class="col-md-2 t4"><p> {{ entity.nbreJoueur }}</p></div>
+                                <div class="col-md-2 t5"><p> _ </p></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="accordion accordion-close" id="section5"><i class="fa fa-calendar-o"></i>MAI<span></span></div>
+                    <div class="acc-content" style="display: none;">
+                        <div class="col-md-1 acc-title">Photo</div>
+                        <div class="col-md-2 acc-title">Date Debut</div>
+                        <div class="col-md-3 acc-title">Tournois</div>
+                        <div class="col-md-2 acc-title">Emplacement </div>
+                        <div class="col-md-2 acc-title"> Nombre  </div>
+                        <div class="col-md-2 acc-title">Gagnant</div>
+                        {%for entity in entities %}
+                            {% if entity.dateDebut|date('U') >= '2016-5-1'|date('U') and entity.dateDebut|date('U') < '2016-6-1'|date('U')  %} 
+                                <div class="acc-footer"></div>
+                                <div class="col-md-1 timg"><img src="./WT TENNIS_files/atp_img.png" alt=""></div>
+                                <div class="col-md-2 t1"><p> {{entity.dateDebut|date('Y-m-d')}}</p></div>
+                                <div class="col-md-3 t2"><p>{{ entity.libelleEvenement }}</p> </div>
+                                <div class="col-md-2 t3"><p>{{ entity.site }}</p></div>
+                                <div class="col-md-2 t4"><p> {{ entity.nbreJoueur }}</p></div>
+                                <div class="col-md-2 t5"><p> _ </p></div>
+                             
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="accordion accordion-close" id="section6"><i class="fa fa-calendar-o"></i>JUIN<span></span></div>
+                    <div class="acc-content" style="display: none;">
+                        <div class="col-md-1 acc-title">Photo</div>
+                        <div class="col-md-2 acc-title">Date Debut</div>
+                        <div class="col-md-3 acc-title">Tournois</div>
+                        <div class="col-md-2 acc-title">Emplacement </div>
+                        <div class="col-md-2 acc-title"> Nombre  </div>
+                        <div class="col-md-2 acc-title">Gagnant</div>
+                        {%for entity in entities %}
+                            {% if entity.dateDebut|date('U') >= '2016-6-1'|date('U') and entity.dateDebut|date('U') < '2016-7-1'|date('U') %} 
+                                <div class="acc-footer"></div>
+                                <div class="col-md-1 timg"><img src="./WT TENNIS_files/atp_img.png" alt=""></div>
+                                <div class="col-md-2 t1"><p> {{entity.dateDebut|date('Y-m-d')}}</p></div>
+                                <div class="col-md-3 t2"><p>{{ entity.libelleEvenement }}</p> </div>
+                                <div class="col-md-2 t3"><p>{{ entity.site }}</p></div>
+                                <div class="col-md-2 t4"><p> {{ entity.nbreJoueur }}</p></div>
+                                <div class="col-md-2 t5"><p> _ </p></div>
+                                
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="accordion accordion-close" id="section7"><i class="fa fa-calendar-o"></i>JUILLET<span></span></div>
+                    <div class="acc-content" style="display: none;">
+                        <div class="col-md-1 acc-title">Photo</div>
+                        <div class="col-md-2 acc-title">Date Debut</div>
+                        <div class="col-md-3 acc-title">Tournois</div>
+                        <div class="col-md-2 acc-title">Emplacement </div>
+                        <div class="col-md-2 acc-title"> Nombre  </div>
+                        <div class="col-md-2 acc-title">Gagnant</div>
+                        {%for entity in entities %}
+                            {% if  entity.dateDebut|date('U') >= '2016-7-1'|date('U') and entity.dateDebut|date('U') < '2016-8-1'|date('U') %} 
+                        <div class="acc-footer"></div>
+
+                                <div class="col-md-1 timg"><img src="./WT TENNIS_files/atp_img.png" alt=""></div>
+                                <div class="col-md-2 t1"><p> {{entity.dateDebut|date('Y-m-d')}}</p></div>
+                                <div class="col-md-3 t2"><p>{{ entity.libelleEvenement }}</p> </div>
+                                <div class="col-md-2 t3"><p>{{ entity.site }}</p></div>
+                                <div class="col-md-2 t4"><p> {{ entity.nbreJoueur }}</p></div>
+                                <div class="col-md-2 t5"><p> _ </p></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="accordion accordion-close" id="section8"><i class="fa fa-calendar-o"></i>AOUT<span></span></div>
+                    <div class="acc-content" style="display: none;">
+
+                        <div class="col-md-1 acc-title">Photo</div>
+                        <div class="col-md-2 acc-title">Date Debut</div>
+                        <div class="col-md-3 acc-title">Tournois</div>
+                        <div class="col-md-2 acc-title">Emplacement </div>
+                        <div class="col-md-2 acc-title"> Nombre  </div>
+                        <div class="col-md-2 acc-title">Gagnant</div>           
+                        {%for entity in entities %}
+
+                            {% if entity.dateDebut|date('U') >= '2016-8-1'|date('U') and entity.dateDebut|date('U') < '2016-9-1'|date('U') %} 
+                                <div class="acc-footer"></div>
+                                <div class="col-md-1 timg"><img src="./WT TENNIS_files/atp_img.png" alt=""></div>
+                                <div class="col-md-2 t1"><p> {{entity.dateDebut|date('Y-m-d')}}</p></div>
+                                <div class="col-md-3 t2"><p>{{ entity.libelleEvenement }}</p> </div>
+                                <div class="col-md-2 t3"><p>{{ entity.site }}</p></div>
+                                <div class="col-md-2 t4"><p> {{ entity.nbreJoueur }}</p></div>
+                                <div class="col-md-2 t5"><p> _ </p></div>
+                            
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="accordion accordion-close" id="section9"><i class="fa fa-calendar-o"></i>SEPTEMBER<span></span></div>
+                    <div class="acc-content" style="display: none;">
+                        <div class="col-md-1 acc-title">Photo</div>
+                        <div class="col-md-2 acc-title">Date Debut</div>
+                        <div class="col-md-3 acc-title">Tournois</div>
+                        <div class="col-md-2 acc-title">Emplacement </div>
+                        <div class="col-md-2 acc-title"> Nombre  </div>
+                        <div class="col-md-2 acc-title">Gagnant</div>
+                        {%for entity in entities %}
+                            {% if entity.dateDebut|date('U') >= '2016-9-1'|date('U') and entity.dateDebut|date('U') < '2016-10-1'|date('U') %} 
+                                <div class="acc-footer"></div>
+                                <div class="col-md-1 timg"><img src="./WT TENNIS_files/atp_img.png" alt=""></div>
+                                <div class="col-md-2 t1"><p> {{entity.dateDebut|date('Y-m-d')}}</p></div>
+                                <div class="col-md-3 t2"><p>{{ entity.libelleEvenement }}</p> </div>
+                                <div class="col-md-2 t3"><p>{{ entity.site }}</p></div>
+                                <div class="col-md-2 t4"><p> {{ entity.nbreJoueur }}</p></div>
+                                <div class="col-md-2 t5"><p> _ </p></div>
+                            
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="accordion accordion-close" id="section10"><i class="fa fa-calendar-o"></i>OCTOBER<span></span></div>
+                    <div class="acc-content" style="display: none;">
+                        <div class="col-md-1 acc-title">Photo</div>
+                        <div class="col-md-2 acc-title">Date Debut</div>
+                        <div class="col-md-3 acc-title">Tournois</div>
+                        <div class="col-md-2 acc-title">Emplacement </div>
+                        <div class="col-md-2 acc-title"> Nombre  </div>
+                        <div class="col-md-2 acc-title">Gagnant</div>
+                        {%for entity in entities %}
+                             
+                            {% if entity.dateDebut|date('U') >= '2016-10-1'|date('U') and entity.dateDebut|date('U') < '2016-11-1'|date('U') %} 
+                            <div class="acc-footer"></div>
+                                <div class="col-md-1 timg"><img src="./WT TENNIS_files/atp_img.png" alt=""></div>
+                                <div class="col-md-2 t1"><p> {{entity.dateDebut|date('Y-m-d')}}</p></div>
+                                <div class="col-md-3 t2"><p>{{ entity.libelleEvenement }}</p> </div>
+                                <div class="col-md-2 t3"><p>{{ entity.site }}</p></div>
+                                <div class="col-md-2 t4"><p> {{ entity.nbreJoueur }}</p></div>
+                                <div class="col-md-2 t5"><p> _ </p></div>
+                               
+                            {% endif %}
+                        {% endfor %}                   </div>
+                    <div class="accordion accordion-close" id="section11"><i class="fa fa-calendar-o"></i>NOVEMBER<span></span></div>
+                    <div class="acc-content" style="display: none;">
+                        <div class="col-md-1 acc-title">Photo</div>
+                        <div class="col-md-2 acc-title">Date Debut</div>
+                        <div class="col-md-3 acc-title">Tournois</div>
+                        <div class="col-md-2 acc-title">Emplacement </div>
+                        <div class="col-md-2 acc-title"> Nombre  </div>
+                        <div class="col-md-2 acc-title">Gagnant</div> 
+                        {%for entity in entities %}
+
+                            {% if entity.dateDebut|date('U') >= '2016-11-1'|date('U') and entity.dateDebut|date('U') < '2016-12-1'|date('U') %} 
+                                <div class="acc-footer"></div>
+                                <div class="col-md-1 timg"><img src="./WT TENNIS_files/atp_img.png" alt=""></div>
+                                <div class="col-md-2 t1"><p> {{entity.dateDebut|date('Y-m-d')}}</p></div>
+                                <div class="col-md-3 t2"><p>{{ entity.libelleEvenement }}</p> </div>
+                                <div class="col-md-2 t3"><p>{{ entity.site }}</p></div>
+                                <div class="col-md-2 t4"><p> {{ entity.nbreJoueur }}</p></div>
+                                <div class="col-md-2 t5"><p> _ </p></div>
+                               
+                            {% endif %}
+                        {% endfor %}                   </div>
+                    <div class="accordion accordion-close" id="section11"><i class="fa fa-calendar-o"></i>DECEMBRE  <span></span></div>
+                    <div class="acc-content" style="display: none;">
+                        <div class="col-md-1 acc-title">Photo</div>
+                        <div class="col-md-2 acc-title">Date Debut</div>
+                        <div class="col-md-3 acc-title">Tournois</div>
+                        <div class="col-md-2 acc-title">Emplacement </div>
+                        <div class="col-md-2 acc-title"> Nombre  </div>
+                        <div class="col-md-2 acc-title">Gagnant</div>
+                        {%for entity in entities %}
+                            {% if entity.dateDebut|date('U') >= '2016-12-1'|date('U') and entity.dateDebut|date('U') < '2017-1-1'|date('U')  %} 
+                                <div class="acc-footer"></div>
+                                <div class="col-md-1 timg"><img src="./WT TENNIS_files/atp_img.png" alt=""></div>
+                                <div class="col-md-2 t1"><p> {{entity.dateDebut|date('Y-m-d')}}</p></div>
+                                <div class="col-md-3 t2"><p>{{ entity.libelleEvenement }}</p> </div>
+                                <div class="col-md-2 t3"><p>{{ entity.site }}</p></div>
+                                <div class="col-md-2 t4"><p> {{ entity.nbreJoueur }}</p></div>
+                                <div class="col-md-2 t5"><p> _ </p></div>
+                               
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                </div><!--Close Top Match-->
+                <div class="col-md-3 right-column">
+                    <div class="top-score-title col-md-12 right-title">
+                        <h3>Nouveautés </h3>
+                        <div class="right-content">
+                            <p class="news-title-right">Recrutement</p>
+                            <p class="txt-right">Dans le cadre de la préparation du Calendrier National pour la saison sportive 2015/2016, la Commission d’organisation de la Fédération ...
+                                                                                                                                        </p>
+                            <a href="http://www.ilcorsaronero.it/progettienvato/SiteParallax/ParallaxSite/site_tennis/preview/single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
+                        </div>
+                        <div class="right-content">
+                            <p class="news-title-right">A New Old Life</p>
+                            <p class="txt-right">Simon, who’s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
+                            <a href="http://www.ilcorsaronero.it/progettienvato/SiteParallax/ParallaxSite/site_tennis/preview/single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
+                        </div>
+                        <div class="right-content">
+                            <p class="news-title-right">A New Old Life</p>
+                            <p class="txt-right">Simon, who’s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
+                            <a href="http://www.ilcorsaronero.it/progettienvato/SiteParallax/ParallaxSite/site_tennis/preview/single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
+                        </div>
+                    </div>
+                    <div class="top-score-title col-md-12">
+                        <img src="{{ asset('frontoffice/images/diversion/banner2.jpg') }}" alt="">
+                    </div>
+                    <div class="top-score-title col-md-12 right-title">
+                        <h3>Photos</h3> 
+                        <ul class="right-last-photo">
+                            <li>
+                                <div class="jm-item second">
+                                    <div class="jm-item-wrapper">
+                                        <div class="jm-item-image">
+                                            <img src="{{asset('frontoffice/images/diversion/3.jpg')}}" alt="">
+                                            <div class="jm-item-description">
+                                                <div class="jm-item-button">
+                                                    <i class="fa fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="jm-item second">
+                                    <div class="jm-item-wrapper">
+                                        <div class="jm-item-image">
+                                            <img src="{{asset('frontoffice/images/diversion/2.jpg')}}" alt="">
+                                            <div class="jm-item-description">
+                                                <div class="jm-item-button">
+                                                    <i class="fa fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="jm-item second">
+                                    <div class="jm-item-wrapper">
+                                        <div class="jm-item-image">
+                                            <img src="{{asset('frontoffice/images/diversion/2.jpg')}}" alt="">
+                                            <div class="jm-item-description">
+                                                <div class="jm-item-button">
+                                                    <i class="fa fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="jm-item second">
+                                    <div class="jm-item-wrapper">
+                                        <div class="jm-item-image">
+                                            <img src="{{asset('frontoffice/images/diversion/5.jpg')}}" alt="">
+                                            <div class="jm-item-description">
+                                                <div class="jm-item-button">
+                                                    <i class="fa fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="jm-item second">
+                                    <div class="jm-item-wrapper">
+                                        <div class="jm-item-image">
+                                            <img src="{{asset('frontoffice/images/diversion/6.jpg')}}" alt="">
+                                            <div class="jm-item-description">
+                                                <div class="jm-item-button">
+                                                    <i class="fa fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="jm-item second">
+                                    <div class="jm-item-wrapper">
+                                        <div class="jm-item-image">
+                                            <img src="{{asset('frontoffice/images/diversion/1.jpg')}}" alt="">
+                                            <div class="jm-item-description">
+                                                <div class="jm-item-button">
+                                                    <i class="fa fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="jm-item second">
+                                    <div class="jm-item-wrapper">
+                                        <div class="jm-item-image">
+                                            <img src="{{asset('frontoffice/images/diversion/2.jpg')}}" alt="">
+                                            <div class="jm-item-description">
+                                                <div class="jm-item-button">
+                                                    <i class="fa fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="jm-item second">
+                                    <div class="jm-item-wrapper">
+                                        <div class="jm-item-image">
+                                            <img src="{{asset('frontoffice/images/diversion/6.jpg')}}" alt="">
+                                            <div class="jm-item-description">
+                                                <div class="jm-item-button">
+                                                    <i class="fa fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="jm-item second">
+                                    <div class="jm-item-wrapper">
+                                        <div class="jm-item-image">
+                                            <img src="{{asset('frontoffice/images/diversion/2.jpg')}}" alt="">
+                                            <div class="jm-item-description">
+                                                <div class="jm-item-button">
+                                                    <i class="fa fa-plus"></i>
+                                                </div>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="container">
+            <!--SECTION SPONSOR-->
+            <div class="client-sport client-sport-nomargin">
+                <div class="content-banner">
+                    <ul class="sponsor second">
+                        <li><img src="{{ asset('frontoffice/images/sponsors/1.jpg') }}" alt="" /></li>
+                        <li><img src="{{ asset('frontoffice/images/sponsors/2.jpg') }}" alt="" /></li>
+                        <li><img src="{{ asset('frontoffice/images/sponsors/3.jpg') }}" alt="" /></li>
+                        <li><img src="{{ asset('frontoffice/images/sponsors/4.jpg') }}" alt="" /></li>
+                        <li><img src="{{ asset('frontoffice/images/sponsors/5.jpg') }}" alt="" /></li>
+                        <li><img src="{{ asset('frontoffice/images/sponsors/6.jpg') }}" alt="" /></li>
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+    {% endblock %}

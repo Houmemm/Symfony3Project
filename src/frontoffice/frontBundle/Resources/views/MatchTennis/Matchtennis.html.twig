@@ -1,0 +1,61 @@
+{% extends "frontofficefrontBundle::MainLayout.html.twig" %}
+
+
+
+{% block main %}
+
+    <section id="allmatch" class="container secondary-page">
+        <div class="general general-results">
+            <div class="top-score-title right-score col-md-9">
+                <h3>MATCHES</h3>
+                <div class="tab-content">
+                    {% for entity in entities %}
+                        {% if entity.joueurs %}
+                            <div id="tab1111" class="tab active">
+                                <table class="match-tbs">
+                                    <tr>
+                                        <td class="match-tbs-title" colspan="7"> {{ entity.dateMatch|date('d/m/y') }} - {% if entity.stadeStade %} {{entity.stadeStade.libelleStade}} {% endif %} - {{entity.tourTour.evenementEvenement.libelleEvenement}}</td>
+                                    </tr>
+                                    {% if entity.sets %}
+                                        <tr class="match-sets">
+                                            <td class="fpt">Sets</td>
+                                            <td class="fpt">1</td>
+                                            {% if entity.sets|length>1%}<td class="fpt">2</td>{% endif %}
+                                            {% if entity.sets|length>2%}<td class="fpt">3</td>{% endif %}
+                                            {% if entity.sets|length>3%}<td class="fpt">4</td>{% endif %}
+                                            {% if entity.sets|length>4%}<td>5</td>{% endif %}
+
+                                        </tr>
+                                    {% endif %}
+                                    <tr>
+                                        <td class="fpt">{% if entity.joueurs %}{{ entity.joueurs[0].nom}} {{ entity.joueurs[0].prenom}}{% endif %}</td>
+                                        {% if entity.sets|length>0 %}<td class="fpt">{{ entity.sets[0].scorej1}}</td> {% endif %}
+                                        {% if entity.sets|length>1 %}<td class="fpt">{{ entity.sets[1].scorej1}}</td> {% endif %}
+                                        {% if entity.sets|length>2 %}<td class="fpt">{{ entity.sets[2].scorej1}}</td> {% endif %}
+                                        {% if entity.sets|length>3 %}<td class="fpt">{{ entity.sets[3].scorej1}}</td> {% endif %}
+                                        {% if entity.sets|length>4 %}<td>{{ entity.sets[4].scorej1}}</td> {% endif %}
+                                    </tr>
+                                    <tr>
+                                        <td class="fpt">{% if entity.joueurs %}{{ entity.joueurs[1].nom}} {{ entity.joueurs[1].prenom}}{% endif %}</td>
+                                        {% if entity.sets|length>0 %}<td class="fpt">{{ entity.sets[0].scorej2}} </td>{% endif %}
+                                        {% if entity.sets|length>1 %}<td class="fpt">{{ entity.sets[1].scorej2}} </td>{% endif %}
+                                        {% if entity.sets|length>2 %}<td class="fpt">{{ entity.sets[2].scorej2}} </td>{% endif %}
+                                        {% if entity.sets|length>3 %}<td class="fpt">{{ entity.sets[3].scorej2}} </td>{% endif %}
+                                        {% if entity.sets|length>4 %}<td>{{ entity.sets[4].scorej2}} </td>{% endif %}
+                                    </tr>
+                                    <tr>
+                                        <td class="match-more" colspan="7"><a href="{{ path('front_matchtennis_show', { 'id': entity.idMatch }) }}" class="ca-more"><i class="fa fa-angle-double-right"></i>more</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="navigation">
+                    {{ knp_pagination_render(entities) }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

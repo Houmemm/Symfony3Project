@@ -1,0 +1,30 @@
+articles:
+    path:     /
+    defaults: { _controller: "SquadFttBundle:Articles:index" }
+
+articles_show:
+    path:     /{id}/show
+    defaults: { _controller: "SquadFttBundle:Articles:show" }
+
+articles_new:
+    path:     /new
+    defaults: { _controller: "SquadFttBundle:Articles:new" }
+
+articles_create:
+    path:     /create
+    defaults: { _controller: "SquadFttBundle:Articles:create" }
+    methods:  POST
+
+articles_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SquadFttBundle:Articles:edit" }
+
+articles_update:
+    path:     /{id}/update
+    defaults: { _controller: "SquadFttBundle:Articles:update" }
+    methods:  [POST, PUT]
+
+articles_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SquadFttBundle:Articles:delete" }
+    methods:  [POST, DELETE]

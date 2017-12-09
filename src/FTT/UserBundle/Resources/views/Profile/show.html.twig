@@ -1,0 +1,38 @@
+{% extends "SquadFttBundle::layout.html.twig" %}
+{% block titre %}
+
+ {% endblock %}
+{% block first1 %}
+     <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">profile :   {{app.user.nom }}   {{app.user.prenom }} </div>
+            <div class="col-lg-6">
+                <div class="panel-body">  
+                    <p>né le : {{app.user.dateDeNaissance|date('Y-m-d')}}   </p>
+                    <p>  {% if app.user.roles[0]=="ROLE_ARBITRE"   %}
+            travail :   Arbitre 
+         {% elseif app.user.roles[0]=="ROLE_RESPONSABLE" %}
+          travail :   Responsable
+         {% elseif app.user.roles[0]=="ROLE_MEDECIN" %}
+          travail :   Medecin
+          {% elseif app.user.roles[0]=="ROLE_ADMIN" %}
+          travail :   Administrateur
+         {% else %}
+             Fan
+         {%endif%}    </p>
+                    <p></p>
+{% include "FOSUserBundle:Profile:show_content.html.twig" %}
+{% endblock %}
+
+{% block first2 %}{% endblock %}
+{% block first3 %}{% endblock %}
+{% block first4 %}{% endblock %}
+{% block second1 %}
+{% endblock  %}
+
+{% block third1 %}{% endblock %}
+{% block third2 %}{% endblock %}
+{% block third3 %}{% endblock %}
+{% block third4 %}{% endblock %}
+{% block fourth1 %}{% endblock %}
+{% block fourth2 %}{% endblock %}

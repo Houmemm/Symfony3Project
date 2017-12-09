@@ -1,0 +1,23 @@
+{% extends "SquadFttBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block first1 %}{% endblock %}
+{% block first2 %}{% endblock %}
+{% block first3 %}{% endblock %}
+{% block first4 %}{% endblock %}
+{% block second1 %}
+    <p  >vous etes connecté en tant que ::  {{app.user.username}} </p>
+    <a href="{{ path('actualite')}}"> Tester le nouveau utilisateur </a>
+    <br>
+    <a href=" {{ path('fos_user_security_logout') }} "></svg>Logout</a>
+    {% if targetUrl %}
+    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+    {% endif %}
+{% endblock  %}
+
+{% block third1 %}{% endblock %}
+{% block third2 %}{% endblock %}
+{% block third3 %}{% endblock %}
+{% block third4 %}{% endblock %}
+{% block fourth1 %}{% endblock %}
+{% block fourth2 %}{% endblock %}

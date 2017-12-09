@@ -1,0 +1,88 @@
+{% extends 'frontofficefrontBundle::MainLayout.html.twig' %}
+{% block menu %}
+    <li><a class="lnk-menu active" href="{{ path('frontofficefront_joueur')}}">Joueurs</a></li>
+    <li><a class="lnk-menu" href="results.html">Results</a></li>
+    <li><a class="lnk-menu" href="news.html">News</a></li>
+    <li><a class="lnk-menu" href="{{ path('frontofficefront_articles')}}">Articles</a></li>
+    <li><a class="lnk-menu" href="contact.html">Contact</a></li>
+{% endblock %}
+
+{% block main %}
+
+    <section class="drawer">
+        <div class="col-md-12 size-img back-img-match">
+            <div class="effect-cover">
+                <h3 class="txt-advert animated fadeInUp">JOUEURS</h3>
+                <p class="txt-advert-sub">« Le tennis, c’est plus qu’un sport. C’est un art, au même titre que la danse. » Bill Tilden. </p>
+            </div>
+        </div>
+
+        <section id="single_player" class="container secondary-page">
+            <div class="general general-results players">
+                <div class="top-score-title right-score col-md-9">
+                    <h3>{{entity.nom}} <span>{{entity.prenom}}</span><span class="point-little">.</span></h3>
+                    <div class="col-md-12 atp-single-player">
+                        <img class="img-djoko" src="{{asset('uploads/joueurs/'~entity.path)}}" alt="" height="250" width="250"/>
+                        <div class="col-md-2 data-player">
+                            <p>D.naissaince:</p>
+                            <p>Nationalite:</p>
+                            <p>Taille:</p>
+                            <p>Poids:</p>
+                            <p>Main forte:</p>
+                            <p>Points aquis:</p>
+                            <p>Club actuel:</p>
+                        </div>
+                        <div class="col-md-3 data-player-2">
+                            <p>{{entity.dateDeNaissance|date('d-m-Y')}}</p>
+                            <p>{{entity.nationaliterJoueur}}</p>
+                            <p>{{entity.taille}}</p>
+                            <p>{{entity.poids}}</p>
+                            <p>{{entity.mainForte}}</p>
+                            <p>{{entity.pointAquis}}</p>
+                            <p>{{entity.clubClub.getLibelleClub()}}</p>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12 atp-single-player skill-content">
+                        <div class="ppl-desc">
+                            <p class="exp-title-pp">DESCRIPTION</p>
+                            <p>{{entity.nom}} {{entity.prenom}} est un joueur de tennis de la categorie {{entity.categorie}} qui a à son compte {{entity.pointAquis}}
+                                points. {{entity.nom}} est de nationaliter {{entity.nationaliterJoueur}} </p>, il est né en {{entity.dateDeNaissance|date('d-m-Y')}}. il mesure 
+                            {{entity.taille}} cm et pese {{entity.poids}} Kg. {{entity.nom}} joue actuellemet pour le {{entity.clubClub.getLibelleClub()}}.  
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 atp-single-player skill-content" style="margin-bottom: 50px">
+                        <div class="ppl-desc">
+                        {{ socialButtons() }}
+                        </div>
+                    </div>
+                    
+                </div><!--Close Top Match-->
+
+                <!--Right Column-->
+                <div class="col-md-3 right-column">
+                    <div class="top-score-title col-md-12 right-title">
+                        <h3>Latest News</h3>
+                        <div class="right-content">
+                            <p class="news-title-right">A New Old Life</p>
+                            <p class="txt-right">Simon, who’s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
+                            <a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
+                        </div>
+                        <div class="right-content">
+                            <p class="news-title-right">A New Old Life</p>
+                            <p class="txt-right">Simon, who’s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
+                            <a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
+                        </div>
+                        <div class="right-content">
+                            <p class="news-title-right">A New Old Life</p>
+                            <p class="txt-right">Simon, who’s seeded just a lowly 26th here, was in many ways the right man for this grueling assignment</p>
+                            <a href="single_news.html" class="ca-more"><i class="fa fa-angle-double-right"></i>more...</a>
+                        </div>
+                    </div>
+
+                </div>
+        </section>
+
+
+    {% endblock %}

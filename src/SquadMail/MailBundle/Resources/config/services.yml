@@ -1,0 +1,4 @@
+services:
+#    squad_mail_mail.example:
+#        class: SquadMail\MailBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

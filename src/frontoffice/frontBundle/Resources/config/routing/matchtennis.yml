@@ -1,0 +1,18 @@
+front_matchtennis:
+    path:     /
+    defaults: { _controller: frontofficefrontBundle:MatchTennis:matchtennis }
+    
+front_matchtennis_show:
+    path:     /{id}/show
+    defaults: { _controller: frontofficefrontBundle:MatchTennis:matchtennisShow }
+    
+front_matchtennis_parier:
+    path:     /{id}/{joueur}/parier/
+    defaults: { _controller: frontofficefrontBundle:MatchTennis:Parier }
+    
+
+front_matchtennis_montant:
+    path:     /{id}/{joueur}/montant
+    defaults: { _controller: frontofficefrontBundle:MatchTennis:Montant }
+    
+    

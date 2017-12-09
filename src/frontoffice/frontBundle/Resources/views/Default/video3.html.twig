@@ -1,0 +1,45 @@
+{% extends 'frontofficefrontBundle::MainLayout.html.twig' %}
+
+{% block main %}
+    <section id="video" class="container secondary-page">
+        <div class="general general-results" style="margin-bottom: 50px">
+            <div class="top-score-title col-md-9">
+                <h3>Novak Djokovic vs. Rafael Nadal</h3>
+                <div class="col-md-12 news-video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/uWDZvOOaWIk" frameborder="0" allowfullscreen></iframe>
+                  
+                </div>
+                <div class="video-desc">
+                    <h3 class="video-other-old">Other <span>Videos</span><span class="point-little">.</span></h3>
+                    <div class="col-md-4 other-videotitle">
+                        <p class="othervideo-date">Australian Open 2014</p>
+                        <p>Best video ever</p>
+                    </div>
+                    <div class="col-md-4 other-videotitle">
+                        <p class="othervideo-date">09.01.2016</p>
+                        <p>Nadal VS Federer</p>
+                    </div>
+                    <div class="col-md-4 other-videotitle otv-last">
+                        <p class="othervideo-date">2016-01-31</p>
+                        <p>Novak Djokovic vs Andy Murray</p>
+                    </div>
+                    <div class="col-md-4 other-video">
+                       <iframe  width="280" height="190" src="https://www.youtube.com/embed/HF10CTQyyxs" frameborder="0" allowfullscreen></iframe>
+                       <a href="{{path('video1')}}"><i class="fa fa-video-camera"></i></a>
+                    </div>
+                    <div class="col-md-4 other-video">
+                        <iframe  width="280" height="190" a href="video1.html.twig" src="https://www.youtube.com/embed/q7AiwWwiF_k" frameborder="0" allowfullscreen></iframe>
+                        <i class="fa fa-video-camera"></i>
+                    </div>
+                    <div class="col-md-4 other-video otv-last">
+                        <iframe   width="280" height="190" src="https://www.youtube.com/embed/csxlEwvM44E" frameborder="0" allowfullscreen></iframe>
+                        <a href="{{path('video3')}}"><i class="fa fa-video-camera"></i></a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div><div></div>
+    </section>
+{% endblock %}
+
+

@@ -1,0 +1,26 @@
+arbitre:
+    path:     /
+    defaults: { _controller: SquadFttBundle:arbitre:index }
+    
+disponibilite:
+    path:     /{date}
+    defaults: { _controller: SquadFttBundle:arbitre:dispo }
+    
+affichageFormation_show:
+    path:     /afficherFormation/{idFormation}
+    defaults: { _controller: SquadFttBundle:affichage:show }
+postulation_create:
+    path:     /postulation/create/{idFormation}
+    defaults: { _controller: SquadFttBundle:Postulation:create }
+postulation_new:
+    path:     /postulation/new/{idFormation}
+    defaults: { _controller: SquadFttBundle:Postulation:new }
+affichageConcours:
+    path:     /afficherConcours/{idConcour}
+    defaults: { _controller: SquadFttBundle:affichage:showConcours }
+postulation_createConcours:
+    path:     /postulationC/create/{idConcour}
+    defaults: { _controller: SquadFttBundle:Postulation:createConcours }
+postulation_newConcours:
+    path:     /postulationC/new/{idConcour}
+    defaults: { _controller: SquadFttBundle:Postulation:newConcours }

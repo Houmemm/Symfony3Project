@@ -1,0 +1,30 @@
+back_matchtennis:
+    path:     /
+    defaults: { _controller: "SquadFttBundle:Matchtennis:index" }
+
+back_matchtennis_show:
+    path:     /{id}/show
+    defaults: { _controller: "SquadFttBundle:Matchtennis:show" }
+
+back_matchtennis_new:
+    path:     /new
+    defaults: { _controller: "SquadFttBundle:Matchtennis:new" }
+
+back_matchtennis_create:
+    path:     /create
+    defaults: { _controller: "SquadFttBundle:Matchtennis:create" }
+    methods:  POST
+
+back_matchtennis_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SquadFttBundle:Matchtennis:edit" }
+
+back_matchtennis_update:
+    path:     /{id}/update
+    defaults: { _controller: "SquadFttBundle:Matchtennis:update" }
+    methods:  [POST, PUT]
+
+back_matchtennis_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SquadFttBundle:Matchtennis:delete" }
+    methods:  [POST, DELETE]

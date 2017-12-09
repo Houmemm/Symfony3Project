@@ -1,0 +1,48 @@
+{% extends "frontofficefrontBundle::MainLayout.html.twig" %}
+{% block header %}
+    <link href= "{{asset('bundles/squadftt/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('bundles/squadftt/css/datepicker3.css')}}" rel="stylesheet">
+    <link href="{{asset('bundles/squadftt/css/bootstrap-table.css')}}" rel="stylesheet">
+    <link href="{{asset('bundles/squadftt/css/styles.css')}}" rel="stylesheet">
+    <!--Icons-->
+    <script src="{{asset('bundles/squadftt/js/lumino.glyphs.js')}}"></script>
+{% endblock %}
+
+
+{% block main %}
+    <section id="single-match-pl" class="container secondary-page" >
+        <div class="container">
+            <div align="center">
+                
+                <img src="{{ asset('uploads/Joueurs/'~joueur.path)}}" width="240" height="228">
+                <span><b> VS </b></span>
+                {% if entity.joueurs[0]!= joueur%}<img src="{{ asset('uploads/joueurs/'~entity.joueurs[0].path)}}" width="240" height="228"> {% endif %} 
+                
+                {% if entity.joueurs[1]!= joueur%}<img src="{{ asset('uploads/joueurs/'~entity.joueurs[1].path)}}" width="240" height="228"> {% endif %}
+                <br><br>
+                Souhaiter vous parier sur {{joueur.nom}} {{joueur.prenom}} pour sont match Contre {% if entity.joueurs[0]!= joueur%} {{entity.joueurs[0].nom}} {{entity.joueurs[0].prenom}} {% endif %} {% if entity.joueurs[1]!= joueur%} {{entity.joueurs[1].nom}} {{entity.joueurs[1].prenom}} {% endif %}?
+                
+                 
+                <form id="montantform" action="{{path('front_matchtennis_parier',{'id':entity.idMatch,'joueur':joueur.cinJoueur})}}" method="get" >
+                    <input id="montant" type="number" name="montant">  
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block jscript %}
+
+    <script src="{{asset('bundles/squadftt/js/jquery-1.11.1.min.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/bootstrap.min.js')}} "></script>
+    <script src="{{asset('bundles/squadftt/js/chart.min.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/chart-data.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/easypiechart.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/easypiechart-data.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/bootstrap-datepicker.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/bootstrap-table.js')}}"></script>
+
+
+{% endblock %}

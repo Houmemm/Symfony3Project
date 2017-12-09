@@ -1,0 +1,208 @@
+{% extends 'SquadFttBundle::layout.html.twig' %}
+{% block titre %}
+ Ajouter un evenement
+{% endblock%}
+
+{% block menu %}
+    <ul class="nav menu">
+        <li><a href="{{ path('accueil')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Statistique</a></li>
+        <li><a href="{{ path('actualite')}}"><svg class="glyph stroked landscape"><use xlink:href="#stroked-landscape"/></svg> Actualites</a></li>
+        <li class="active" ><a href="{{ path('evenement')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Evenements</a></li>
+        <li><a href="{{ path('joueur')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Joueurs</a></li>
+        <li><a href="{{ path('match')}}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Matchs</a></li>
+        <li><a href="{{ path('arbitre')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Arbitres</a></li>
+        <li><a href="{{ path('stade')}}"><svg class="glyph stroked location pin"><use xlink:href="#stroked-location-pin"/></svg> Stades</a></li>
+        <li><a href="{{ path('club')}}"><svg class="glyph stroked home"><use xlink:href="#stroked-home"/></svg> Clubs</a></li>
+        <li><a href="{{ path('concour')}}"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Concours</a></li>
+        <li><a href="{{ path('formation')}}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Formations</a></li>
+        <li><a href="{{ path('gestionDopage')}}"><svg class="glyph stroked eye"><use xlink:href="#stroked-eye"/></svg> Gestion Dopage</a></li>
+          <li><a href="{{ path('user')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Utilisateur</a></li>
+    </ul>  
+{% endblock %} 
+{% block first1 %}{% endblock %}
+
+
+{% block first2 %}{% endblock %}
+{% block first3 %}{% endblock %}
+{% block first4 %}{% endblock %}
+{% block second1 -%}
+    <form  action="{{ path("evenement_create") }}" method="post">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="col-lg-6">
+                    <div class="panel-body">  
+
+                        {{ form_row(form.libelleEvenement, { 'attr': {'class': 'form-control'}  }   ) }}
+                        {{ form_row(form.dateDebut, { 'attr': {'class': 'form-control'} }   ) }}
+                        {{ form_row(form.dateFin, { 'attr': {'class': 'form-control'} }   ) }}
+                        {{ form_row(form.type, { 'attr': {'class': 'form-control'} }   ) }}
+                        {{ form_row(form.site, { 'attr': {'class': 'form-control'} }   ) }}
+                        {{ form_row(form.nbreJoueur, { 'attr': {'class': 'form-control'} }   ) }}
+                        {{ form_row(form.statut, { 'attr': {'class': 'form-control'} } ) }}
+                        {{ form_row(form.imageEve) }}
+                        <label class="required"> Voulez vous affecter des joueurs automatiquement ? </label>
+                        <div class="Checkbox">
+                        <input type="checkbox" name="auto[]" value="1">
+                        </div>              
+                 
+                         
+
+                       {{  form_row(form.submit, { 'attr': {'class': 'btn btn-primary'} }  ) }}
+                    <!--  <input type="button" value="TestSaisie" onClick="verifier()"  class="btn btn-primary" ></input>
+                      -->  <br>
+                        <div> 
+                            {{ form_rest(form)}}
+
+ 
+                         
+                         
+                         
+                         
+             
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-body tabs">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1" data-toggle="tab">Stade</a></li>
+                            <li><a href="#tab2" data-toggle="tab">Arbitre</a></li>
+                            <li><a href="#tab3" data-toggle="tab">Joueur</a></li>
+                        </ul>
+
+                        <div class="tab-content"><!-- Stade-->
+                            <div class="tab-pane fade in active" id="tab1">
+
+                                <table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                                    <thead>
+                                        <tr>
+                                            <th>LibelleStade</th>
+                                            <th>Emplacement</th>
+                                            <th>TypeTerrain</th>
+                                            <th>capacite</th>
+                                            <th>Choisir</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody  >
+                                        {% for entity in entities2 %}
+                                            <tr>
+                                                <td>{{ entity.libelleStade }}</td>
+                                                <td> {{ entity.emplacement }} </td>
+                                                <td>{{ entity.typeTerrains }} </td>
+                                                <td>{{ entity.capacite}}</td>
+                                                <td> <input type="checkbox" name="stade[]" value="{{ entity.idStade }}">  </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+         
+                             <div class="tab-pane fade" id="tab2"><!-- Arbitre-->
+                             
+                                        <table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                                            <thead>
+                                                <tr>
+                                                    <th>nom</th>
+                                                    <th>nationnalite</th>
+                                                    <th>Grade</th>
+                                                    <th>Type</th>
+                                                    <th>Choisir</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+
+                                                {% for a in entities4 %}
+                                                    <tr>
+                                                        <td>{{ a.nom }}</td>
+                                                        <td> {{ a.nationaliter }} </td>
+                                                        <td>{{ a.gradeArbitre }} </td>
+                                                        <td>{{ a.typeArbitre}}</td>
+                                                        <td> <input type="checkbox" name="arbitre[]" value="{{ a.idUser }}">  </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                            
+                                  <!-- Joueurs -->
+                                <div class="tab-pane fade" id="tab3">
+ 
+                                        <table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nom</th>
+                                                    <th>Prenom</th>
+                                                    <th>Categorie</th>
+                                                    <th>Nationnalite</th>
+                                                    <th>Choisir</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody  >
+                                                {% for entity in entities3 %}
+                                                    <tr>
+                                                        <td>{{ entity.nom }}</td>
+                                                        <td> {{ entity.prenom }} </td>
+                                                        <td>{{ entity.categorie }} </td>
+                                                        <td>{{ entity.nationaliterJoueur }}</td>
+                                                        <td> <input type="checkbox" name="joueurs[]" value="{{ entity.cinJoueur}}">  </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+ 
+                                </div>
+                            </div>
+                        </div><!--/.panel-->
+<script>
+    function verifier(){      
+     var nbStade = 0;
+     var nbArbitre = 0;
+     var nbj = 0;
+     var stade = document.getElementsByName("stade[]");
+     var arbitre = document.getElementsByName("arbitre[]");
+     var joueurs = document.getElementsByName("joueurs[]");
+     var nbJoueurs = document.getElementById("squad_fttbundle_evenement_nbreJoueur").value;
+
+          for (var i=0;i< stade.length;i++){
+		if(stade[i].checked)
+			nbStade++;
+	}	
+          for (var i=0;i< arbitre.length;i++){
+		if(arbitre[i].checked)
+			nbArbitre++;
+	}	
+          for (var i=0;i< joueurs.length;i++){
+		if(joueurs[i].checked)
+			nbj++;
+	}	
+
+    if( (nbJoueurs/2) > nbStade )
+    {
+  alert("il faut au minimum "+(nbJoueurs/2)+" stade");        
+    }    
+    if( (nbJoueurs/2) > nbArbitre )
+    {
+  alert("il faut au minimum "+(nbJoueurs/2)+" arbitre");        
+   }    
+    if( nbJoueurs !== nbj  )
+    {
+  alert("il faut au minimum "+nbJoueurs+"  Joueurs");        
+  }    
+ 
+    
+    
+    }
+</script>
+
+                        </form>
+                    {% endblock %}    
+                {% block third1 %}{% endblock %}
+            {% block third2 %}{% endblock %}
+        {% block third3 %}{% endblock %}
+    {% block third4 %}{% endblock %}
+{% block fourth1 %}{% endblock %}
+{% block fourth2 %}{% endblock %}

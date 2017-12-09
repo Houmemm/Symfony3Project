@@ -1,0 +1,82 @@
+{% extends 'SquadFttBundle::layout.html.twig' %}
+{% block menu %}
+    <ul class="nav menu">
+        <li><a href="{{ path('accueil')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Statistique</a></li>
+        <li><a href="{{ path('actualite')}}"><svg class="glyph stroked landscape"><use xlink:href="#stroked-landscape"/></svg> Actualites</a></li>
+        <li><a href="{{ path('evenement')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Evenements</a></li>
+        <li class="active"><a href="{{ path('joueur')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Joueurs</a></li>
+        <li><a href="{{ path('match')}}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Matchs</a></li>
+        <li><a href="{{ path('arbitre')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Arbitres</a></li>
+        <li><a href="{{ path('stade')}}"><svg class="glyph stroked location pin"><use xlink:href="#stroked-location-pin"/></svg> Stades</a></li>
+        <li><a href="{{ path('club')}}"><svg class="glyph stroked home"><use xlink:href="#stroked-home"/></svg> Clubs</a></li>
+        <li><a href="{{ path('concour')}}"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Concours</a></li>
+        <li><a href="{{ path('formation')}}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Formations</a></li>
+        <li><a href="{{ path('gestionDopage')}}"><svg class="glyph stroked eye"><use xlink:href="#stroked-eye"/></svg> Gestion Dopage</a></li>
+        <li><a href="{{ path('articles')}}"><svg class="glyph stroked table"><use xlink:href="#stroked-bag"></use></svg> Articles</a></li>
+    </ul> 
+{% endblock %}
+{% block titre %} Joueur  {% endblock %}
+{% block first1 %}{% endblock %}
+{% block first2 %}{% endblock %}
+{% block first3 %}{% endblock %}
+{% block first4 %}{% endblock %}
+
+{% block second1 %}
+    <form  action="{{ path("joueur_create") }}" method="post">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"> {{entity.nom}} {{entity.prenom}}</div>
+                <div class="col-lg-6">
+                    <div class="panel-body" >
+
+                        <p>
+                        <pre>
+        <p5 style="font-size:200%;font-family:courier;"><b>CIN              :</b></p5> <p6 style="font-size:200%;">{{ entity.cinJoueur }}</p6>
+
+        <p5 style="font-size:200%;font-family:courier;"><b>Nom              :</b></p5> <p6 style="font-size:200%;">{{ entity.nom }}</p6>
+
+        <p5 style="font-size:200%;font-family:courier;"><b>Prenom           :</b></p5> <p6 style="font-size:200%;">{{ entity.prenom }}</p6>
+
+        <p5 style="font-size:200%;font-family:courier;"><b>Date de naissance:</b></p5> <p6 style="font-size:200%;">{{ entity.dateDeNaissance|date('d-m-Y') }}</p6>
+
+        <p5 style="font-size:200%;font-family:courier;"><b>Points aquis     :</b></p5> <p6 style="font-size:200%;">{{ entity.pointAquis }}</p6>
+
+        <p5 style="font-size:200%;font-family:courier;"><b>Categorie        :</b></p5> <p6 style="font-size:200%;">{{ entity.categorie }}</p6>
+
+        <p5 style="font-size:200%;font-family:courier;"><b>Taille           :</b></p5> <p6 style="font-size:200%;">{{ entity.taille }}</p6>
+
+        <p5 style="font-size:200%;font-family:courier;"><b>Poids            :</b></p5> <p6 style="font-size:200%;">{{ entity.poids }}</p6>
+
+        <p5 style="font-size:200%;font-family:courier;"><b>Main forte       :</b></p5> <p6 style="font-size:200%;">{{ entity.mainForte }}</p6>
+
+        <p5 style="font-size:200%;font-family:courier;"><b>Nationalite      :</b></p5> <p6 style="font-size:200%;">{{ entity.nationaliterJoueur }}</p6>
+
+        <p5 style="font-size:200%;font-family:courier;"><b>Club             :</b></p5> <p6 style="font-size:200%;">{{ entity.clubClub.getLibelleClub() }}</p6>
+
+                            
+
+                        </pre>
+                        </p>
+
+                        <a href="{{ path('joueur') }}" class="btn btn-primary btn-sm"> Retour a la liste </a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{{ path('joueur_edit',{ 'cin': entity.cinJoueur }) }}" class="btn btn-warning btn-sm"> Modifier </a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{{ path('joueur_delete',{ 'cin': entity.cinJoueur }) }}" class="btn btn-danger btn-sm"> Supprimer </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+
+                <img src="{{asset('uploads/joueurs/'~entity.path)}}" width="550" height="380" class="thumbnail"  alt ="">
+
+            </div>
+        {% endblock %}    
+    {% block third1 %}{% endblock %}
+{% block third2 %}{% endblock %}
+{% block third3 %}{% endblock %}
+{% block third4 %}{% endblock %}
+{% block fourth1 %}{% endblock %}
+{% block fourth2 %}{% endblock %}

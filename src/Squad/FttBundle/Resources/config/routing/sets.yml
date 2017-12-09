@@ -1,0 +1,30 @@
+back_sets:
+    path:     /{match}
+    defaults: { _controller: "SquadFttBundle:Sets:index" }
+
+back_sets_show:
+    path:     /{id}/show
+    defaults: { _controller: "SquadFttBundle:Sets:show" }
+
+back_sets_new:
+    path:     /{match}/new
+    defaults: { _controller: "SquadFttBundle:Sets:new" }
+
+back_sets_create:
+    path:     /{match}/create
+    defaults: { _controller: "SquadFttBundle:Sets:create" }
+    methods:  POST
+
+back_sets_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SquadFttBundle:Sets:edit" }
+
+back_sets_update:
+    path:     /{id}/update
+    defaults: { _controller: "SquadFttBundle:Sets:update" }
+    methods:  [POST, PUT]
+
+back_sets_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SquadFttBundle:Sets:delete" }
+    methods:  [POST, DELETE]

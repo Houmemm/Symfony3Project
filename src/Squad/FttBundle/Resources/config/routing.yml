@@ -1,0 +1,247 @@
+squad_ftt_articles:
+    resource: "@SquadFttBundle/Resources/config/routing/articles.yml"
+    prefix:   /articles
+
+accueil:
+    path:     /
+    defaults: { _controller: SquadFttBundle:Default:index }
+platform:
+    path:     /platform
+    defaults: { _controller: FTTUserBundle:Security:login }
+evenement:
+    path:     /evenement
+    defaults: { _controller: SquadFttBundle:Evenement:index }
+joueur:
+    path:     /joueur
+    defaults: { _controller: SquadFttBundle:Joueur:index }
+joueur_show:
+    path:     /joueur/{cin}/joueur_show
+    defaults: { _controller: SquadFttBundle:Joueur:show }
+joueur_new:
+    path:     /joueur/new
+    defaults: { _controller: SquadFttBundle:Joueur:new }  
+joueur_create:
+    path:     /joueur/create
+    defaults: { _controller: SquadFttBundle:Joueur:create }  
+joueur_edit:
+    path:     /joueur/{cin}/edit
+    defaults: { _controller: SquadFttBundle:Joueur:edit } 
+joueur_update:
+    path:     /joueur/{cin}/update
+    defaults: { _controller: SquadFttBundle:Joueur:update }
+    methods: [POST,PUT]
+joueur_delete:
+    path:     /joueur/{cin}/delete
+    defaults: { _controller: SquadFttBundle:Joueur:delete }
+    methods: [POST,DELETE, GET]
+match:
+    path:     /match
+    defaults: { _controller: SquadFttBundle:Default:match }
+club:
+    path:     /club
+    defaults: { _controller: SquadFttBundle:Club:index }
+actualite:
+    path:     /actualite
+    defaults: { _controller: SquadFttBundle:Actualites:index }
+gestionDopage:
+    path:     /gestionDopage
+    defaults: { _controller: SquadFttBundle:Default:dopage }
+authentification:
+    path:     /authentification
+    defaults: { _controller: SquadFttBundle:Default:authentification }
+user:
+    path:     /user
+    defaults: { _controller: SquadFttBundle:User:index }
+user_show:
+    path:     user/{id}/user_show
+    defaults: { _controller: SquadFttBundle:User:show }
+user_new:
+    path:     user/new
+    defaults: { _controller: SquadFttBundle:User:new }  
+user_create:
+    path:     user/create
+    defaults: { _controller: SquadFttBundle:User:create }  
+user_edit:
+    path:     user/{id}/edit
+    defaults: { _controller: SquadFttBundle:User:edit } 
+user_update:
+    path:     user/{id}/update
+    defaults: { _controller: SquadFttBundle:User:update }
+    methods: [POST,PUT]
+user_delete:
+    path:     user/{id}/delete
+    defaults: { _controller: SquadFttBundle:User:delete }
+    methods: [POST,DELETE]
+evenement_show:
+    path:     /evenement/{id}/evenement_show
+    defaults: { _controller: SquadFttBundle:Evenement:show }
+evenement_new:
+    path:     /evenement/new
+    defaults: { _controller: SquadFttBundle:Evenement:new }  
+evenement_create:
+    path:     /evenement/create
+    defaults: { _controller: SquadFttBundle:Evenement:create }  
+evenement_edit:
+    path:     /evenement/{id}/edit
+    defaults: { _controller: SquadFttBundle:Evenement:edit } 
+evenement_update:
+    path:     /evenement/{id}/update
+    defaults: { _controller: SquadFttBundle:Evenement:update }
+    methods: [POST,PUT]
+evenement_delete:
+    path:     /evenement/{id}/delete
+    defaults: { _controller: SquadFttBundle:Evenement:delete }
+    methods: [POST,DELETE]
+afficherSolde:
+    path:     /user/{id}/soldes
+    defaults: { _controller: SquadFttBundle:User:afficherSolde }
+
+ajouterSolde:
+    path:     /user/{id}/soldes/ajouter
+    defaults: { _controller: SquadFttBundle:User:ajouterSolde }
+    
+articles:
+    path:     /articles
+    defaults: { _controller: SquadFttBundle:Articles:index }    
+articles_show:
+    path:     /articles/{id}/articles_show
+    defaults: { _controller: SquadFttBundle:Articles:show }
+articles_new:
+    path:     /articles/new
+    defaults: { _controller: SquadFttBundle:Articles:new }  
+articles_create:
+    path:     /articles/create
+    defaults: { _controller: SquadFttBundle:Articles:create }  
+articles_edit:
+    path:     /articles/{id}/edit
+    defaults: { _controller: SquadFttBundle:Articles:edit } 
+articles_update:
+    path:     /articles/{id}/update
+    defaults: { _controller: SquadFttBundle:Articles:update }
+    methods: [POST,PUT]
+articles_delete:
+    path:     /articles/{id}/delete
+    defaults: { _controller: SquadFttBundle:Articles:delete }
+    methods: [POST,DELETE, GET]
+
+
+    
+concour:
+    path:    /concour
+    defaults: { _controller: SquadFttBundle:Concours:index }
+disponibiliter:
+     path:    /disponibiliter
+     defaults: { _controller: SquadFttBundle:Disponibiliter:index}
+formation:
+    path:    /formation
+    defaults: { _controller: SquadFttBundle:Formation:index }
+concour_show:
+    path:     /concour/{idConcour}/concour_show
+    defaults: { _controller: SquadFttBundle:Concours:show }
+concour_new:
+    path:     /concour/new
+    defaults: { _controller: SquadFttBundle:Concours:new }  
+concour_create:
+    path:     /concour/create
+    defaults: { _controller: SquadFttBundle:Concours:create }  
+concour_edit:
+    path:     /concour/{idConcour}/edit
+    defaults: { _controller: SquadFttBundle:Concours:edit } 
+concour_update:
+    path:     /concour/{idConcour}/update
+    defaults: { _controller: SquadFttBundle:Concours:update }
+    methods: [POST,PUT]
+concour_delete:
+    path:     /concour/{idConcour}/delete
+    defaults: { _controller: SquadFttBundle:Concours:delete }
+    methods: [POST,DELETE,GET]
+formation_show:
+    path:     /formation/{idFormation}/formation_show
+    defaults: { _controller: SquadFttBundle:Formation:show }
+formation_new:
+    path:     /formation/new
+    defaults: { _controller: SquadFttBundle:Formation:new }  
+formation_create:
+    path:     /formation/create
+    defaults: { _controller: SquadFttBundle:Formation:create }  
+formation_edit:
+    path:     /formation/{idFormation}/edit
+    defaults: { _controller: SquadFttBundle:Formation:edit } 
+formation_update:
+    path:     /formation/{idFormation}/update
+    defaults: { _controller: SquadFttBundle:Formation:update }
+    methods: [POST,PUT]
+formation_delete:
+    path:     /formation/{idFormation}/delete
+    defaults: { _controller: SquadFttBundle:Formation:delete }
+    methods: [POST,DELETE,GET]
+
+squad_ftt_stade:
+    resource: "@SquadFttBundle/Resources/config/routing/stade.yml"
+    prefix:   /stade
+    
+
+squad_ftt_sanction:
+    resource: "@SquadFttBundle/Resources/config/routing/sanction.yml"
+    prefix:   /sanction
+
+squad_ftt_matchhasjoueur:
+    resource: "@SquadFttBundle/Resources/config/routing/matchhasjoueur.yml"
+    prefix:   /matchhasjoueur
+
+back_squad_ftt_matchtennis:
+    resource: "@SquadFttBundle/Resources/config/routing/matchtennis.yml"
+    prefix:   /matchtennis
+
+back_squad_ftt_sets:
+    resource: "@SquadFttBundle/Resources/config/routing/sets.yml"
+    prefix:   /sets
+
+
+
+
+actualite_show:
+    path:     /actualite/{idactualite}/actualite_show
+    defaults: { _controller: SquadFttBundle:Actualites:show }
+actualite_new:
+    path:     /actualite/new
+    defaults: { _controller: SquadFttBundle:Actualites:new }  
+actualite_create:
+    path:     /actualite/create
+    defaults: { _controller: SquadFttBundle:Actualites:create }  
+actualite_edit:
+    path:     /actualite/{idactualite}/edit
+    defaults: { _controller: SquadFttBundle:Actualites:edit } 
+    methods: [GET,PUT]
+    
+actualite_update:
+    path:     /actualite/{idactualite}/update
+    defaults: { _controller: SquadFttBundle:Actualites:Update }
+    methods: [GET,PUT]
+actualite_delete:
+    path:     /actualite/{idactualite}/delete
+    defaults: { _controller: SquadFttBundle:Actualites:delete }
+    methods: [POST,DELETE]
+club_show:
+    path:     /club/{idClub}/club_show
+    defaults: { _controller: SquadFttBundle:Club:show }
+club_new:
+    path:     /club/new
+    defaults: { _controller: SquadFttBundle:Club:new }  
+club_create:
+    path:     /club/create
+    defaults: { _controller: SquadFttBundle:Club:create }  
+club_edit:
+    path:     /club/{idClub}/edit
+    defaults: { _controller: SquadFttBundle:Club:edit } 
+    
+club_update:
+    path:     /club/{idClub}/update
+    defaults: { _controller: SquadFttBundle:Club:update }
+    methods: [GET,PUT]
+club_delete:
+    path:     /club/{idClub}/delete
+    defaults: { _controller: SquadFttBundle:Club:delete }
+    methods: [POST,DELETE]
+
+    

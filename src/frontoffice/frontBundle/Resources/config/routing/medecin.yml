@@ -1,0 +1,41 @@
+rapport:
+    path:     /
+    defaults: { _controller: "SquadFttBundle:Rapport:index" }
+
+rapport_show:
+    path:     /{id}/show
+    defaults: { _controller: "SquadFttBundle:Rapport:show" }
+
+rapport_new:
+    path:     /new
+    defaults: { _controller: "SquadFttBundle:Rapport:new" }
+
+rapport_create:
+    path:     /create
+    defaults: { _controller: "SquadFttBundle:Rapport:create" }
+    methods:  POST
+
+rapport_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SquadFttBundle:Rapport:edit" }
+
+rapport_update:
+    path:     /{id}/update
+    defaults: { _controller: "SquadFttBundle:Rapport:update" }
+    methods:  [POST, PUT]
+
+rapport_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SquadFttBundle:Rapport:delete" }
+    methods:  [POST, DELETE]
+rapport_joueur:
+    path:     /joueur
+    defaults: { _controller: "SquadFttBundle:Rapport:listJoueur" }
+rapport_pdf:
+    path:     /rapport/pdf/{id}
+    defaults: { _controller: "SquadFttBundle:Rapport:rapportPdf" }
+    
+squad_ftt_mail:
+    resource: "@SquadMailMailBundle/Resources/config/routing.yml"
+    prefix:   /mail
+    

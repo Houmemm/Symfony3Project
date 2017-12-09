@@ -1,0 +1,30 @@
+stade:
+    path:     /
+    defaults: { _controller: "SquadFttBundle:Stade:index" }
+
+stade_show:
+    path:     /{id}/show
+    defaults: { _controller: "SquadFttBundle:Stade:show" }
+
+stade_new:
+    path:     /new
+    defaults: { _controller: "SquadFttBundle:Stade:new" }
+
+stade_create:
+    path:     /create
+    defaults: { _controller: "SquadFttBundle:Stade:create" }
+    methods:  POST
+
+stade_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SquadFttBundle:Stade:edit" }
+
+stade_update:
+    path:     /{id}/update
+    defaults: { _controller: "SquadFttBundle:Stade:update" }
+    methods:  [POST, PUT]
+
+stade_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SquadFttBundle:Stade:delete" }
+    methods:  [POST, DELETE]

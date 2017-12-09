@@ -1,0 +1,9 @@
+{%extends  'FTTUserBundle::layout.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block form1%}
+{% block fos_user_content %}
+<p>
+{{ 'resetting.check_email'|trans({'%email%': email}) }}
+</p>
+{% endblock fos_user_content %}
+{% endblock  form1 %}

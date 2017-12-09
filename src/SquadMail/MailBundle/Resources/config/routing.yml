@@ -1,0 +1,14 @@
+squad_mail_mail_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SquadMailMailBundle:Default:index }
+squad_mail_mail_succ:
+ path: /succ
+ defaults: { _controller: SquadMailMailBundle:Mail:index }
+ 
+squad_mail_form:
+ path: /
+ defaults: { _controller: SquadMailMailBundle:Mail:new }
+ 
+squad_mail_sendpage:
+ path: /sendmail
+ defaults: { _controller: SquadMailMailBundle:Mail:sendMail }

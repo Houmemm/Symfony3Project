@@ -1,0 +1,4 @@
+services:
+#    ftt_user.example:
+#        class: FTT\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

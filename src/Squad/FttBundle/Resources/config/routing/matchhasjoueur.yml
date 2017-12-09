@@ -1,0 +1,30 @@
+back_matchhasjoueur:
+    path:     /{match}
+    defaults: { _controller: "SquadFttBundle:MatchHasJoueur:index" }
+
+back_matchhasjoueur_show:
+    path:     /{id}/show
+    defaults: { _controller: "SquadFttBundle:MatchHasJoueur:show" }
+
+back_matchhasjoueur_new:
+    path:     /{match}/new
+    defaults: { _controller: "SquadFttBundle:MatchHasJoueur:new" }
+
+back_matchhasjoueur_create:
+    path:     /{match}/create
+    defaults: { _controller: "SquadFttBundle:MatchHasJoueur:create" }
+    methods:  POST
+
+back_matchhasjoueur_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SquadFttBundle:MatchHasJoueur:edit" }
+
+back_matchhasjoueur_update:
+    path:     /{id}/update
+    defaults: { _controller: "SquadFttBundle:MatchHasJoueur:update" }
+    methods:  [POST, PUT]
+
+back_matchhasjoueur_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SquadFttBundle:MatchHasJoueur:delete" }
+    methods:  [POST, DELETE]

@@ -1,0 +1,102 @@
+{# empty Twig template #}
+
+{% extends 'SquadFttBundle::layout.html.twig' %}
+
+{% block header %}   
+    <link href="{{asset('bundles/squadftt/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('bundles/squadftt/css/datepicker3.css')}}" rel="stylesheet">
+    <link href="{{asset('bundles/squadftt/css/styles.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block titre %} Listes des concours  {% endblock %}
+{% block menu %}
+    <ul class="nav menu">
+        <li><a href="{{ path('accueil')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Statistique</a></li>
+        <li><a href="{{ path('actualite')}}"><svg class="glyph stroked landscape"><use xlink:href="#stroked-landscape"/></svg> Actualites</a></li>
+        <li ><a href="{{ path('evenement')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Evenements</a></li>
+        <li class="active" ><a href="{{ path('disponibiliter')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Disponibilite</a></li>
+        <li><a href="{{ path('match')}}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Matchs</a></li>
+        <li><a href="{{ path('arbitre')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Arbitres</a></li>
+        <li><a href="{{ path('stade')}}"><svg class="glyph stroked location pin"><use xlink:href="#stroked-location-pin"/></svg> Stades</a></li>
+        <li><a href="{{ path('club')}}"><svg class="glyph stroked home"><use xlink:href="#stroked-home"/></svg> Clubs</a></li>
+        <li><a href="{{ path('concour')}}"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Concours</a></li>
+        <li><a href="{{ path('formation')}}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Formations</a></li>
+        <li><a href="{{ path('gestionDopage')}}"><svg class="glyph stroked eye"><use xlink:href="#stroked-eye"/></svg> Gestion Dopage</a></li>
+    </ul>  
+{% endblock %}
+{% block first1 -%}
+    <form id="form1">
+   <select name="choix" id="choice">
+  <option value="0">1</option>
+  <option value="1">2</option>
+  <option value="2">3</option>
+     </select>
+    <div class="col-md-4">
+
+        <div class="panel panel-red">
+            <div class="panel-heading dark-overlay"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Calendar</div>
+            <div class="panel-body">
+                <div id="calendar"></div>
+            </div>
+        </div>
+
+  
+    </div><!--/.col-->  
+
+    <p> 
+        <button id="try">Valider</button></p>
+    
+  <input type="date" name="bday" disabled>
+      </form>
+    {% endblock %}
+    {% block jscript %}
+    <script src="{{asset('bundles/squadftt/js/jquery-1.11.1.min.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/chart.min.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/chart-data.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/easypiechart.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/easypiechart-data.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/bootstrap-datepicker.js')}}"></script>
+    <script>
+
+
+        !function ($) {
+            $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
+                $(this).find('em:first').toggleClass("glyphicon-minus");
+
+            });
+            $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+        }(window.jQuery);
+
+        $(window).on('resize', function () {
+            if ($(window).width() > 768)
+                $('#sidebar-collapse').collapse('show')
+        })
+        $(window).on('resize', function () {
+            if ($(window).width() <= 767)
+                $('#sidebar-collapse').collapse('hide')
+        })
+
+        $(function () {
+            $("#c").datepicker();
+            $("#try").bind("click", function (){
+                oFormObject= $document.forms['form1'];
+                oFormElement = oFormObject.elements["bday"];
+                
+            });
+        });
+
+    </script>	
+
+{% endblock %}
+
+{% block first2 %}{% endblock %}    
+{% block first3 %}{% endblock %}    
+{% block first4 %}{% endblock %}    
+{% block second1 %}{% endblock %}    
+{% block third1 %}{% endblock %}    
+{% block third2 %}{% endblock %}
+{% block third3 %}{% endblock %}
+{% block third4 %}{% endblock %}
+{% block fourth1 %}{% endblock %}
+{% block fourth2 %}{% endblock %}

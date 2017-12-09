@@ -1,0 +1,184 @@
+{# empty Twig template #}
+
+{% extends 'SquadFttBundle::layout.html.twig' %}
+
+
+{% block header %}
+    <script src="{{asset('bundles/squadftt/js/jquery-1.11.1.min.js')}}"></script>
+    <link href="{{asset('bundles/squadftt/css/styles.css')}}" rel="stylesheet">
+    <link href="{{asset('bundles/squadftt/css/datepicker3.css')}}" rel="stylesheet">
+    <link href="{{asset('bundles/squadftt/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/materialize.min.css')}}" rel="stylesheet">
+    <link href="{{asset('fonts/Material-Design-Icons.woff2')}}" rel="stylesheet">
+
+{% endblock %}
+{% block suppress %}{% endblock %}
+{% block titre %} Espace arbitre  {% endblock %}
+{% block menu %}
+    <ul class="nav menu">
+        <li><a href="{{ path('accueil')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Statistique</a></li>
+        <li><a href="{{ path('actualite')}}"><svg class="glyph stroked landscape"><use xlink:href="#stroked-landscape"/></svg> Actualites</a></li>
+        <li ><a href="{{ path('evenement')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Evenements</a></li>
+        <li><a href="{{ path('joueur')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Joueurs</a></li>
+        <li><a href="{{ path('match')}}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Matchs</a></li>
+        <li class="active"><a href="{{ path('arbitre')}}"><svg class="glyph stroked male user "><use xlink:href="#stroked-male-user"/></svg> Arbitres</a></li>
+        <li><a href="{{ path('stade')}}"><svg class="glyph stroked location pin"><use xlink:href="#stroked-location-pin"/></svg> Stades</a></li>
+        <li><a href="{{ path('club')}}"><svg class="glyph stroked home"><use xlink:href="#stroked-home"/></svg> Clubs</a></li>
+        <li><a href="{{ path('concour')}}"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Concours</a></li>
+        <li><a href="{{ path('formation')}}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Formations</a></li>
+        <li><a href="{{ path('gestionDopage')}}"><svg class="glyph stroked eye"><use xlink:href="#stroked-eye"/></svg> Gestion Dopage</a></li>
+    </ul>  
+{% endblock %}
+{% block first1 -%}
+
+  
+
+    <div class="col-md-6" style="width:100%;">
+        <div class="panel panel-default">
+            <div class="panel-body tabs">
+                <ul class="nav nav-tabs">
+                    <li class="active"   style="color: #1ebfae"><a  href="#tab1" data-toggle="tab"  >disponibiliter</a></li>
+                    <li  style="color: #1ebfae"><a href="#tab2"   data-toggle="tab">formation</a></li>
+                    <li  style="color: #1ebfae"><a href="#tab3"  data-toggle="tab">concours</a></li>
+                </ul>
+                <div class="tab-content"><!-- formation-->
+                    <div class="tab-pane fade in active" id="tab1">
+
+                        <form id="form1" method="GET" action="ajout">
+                            <div class="col-md-4">
+
+                                <div class="panel panel-red">
+                                    <div class="panel-heading dark-overlay"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg>Calendar</div>
+                                    <div class="panel-body">
+                                        <div id="calendar"></div>
+                                    </div>
+                                </div>
+                                <input type="button" id="bday" value="valider">
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div  class="tab-pane fade"  id="tab2">
+
+                        <table   id="odd" data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1"  data-sort-name="name" data-sort-order="desc">
+
+                            <thead>
+                                <tr>
+
+                                    <th style="padding-right: 8px;">Libelle</th>
+                                    <th style="padding-right: 8px;">grade</th>
+                                    <th style="padding-right: 8px;">dateDebutFormation</th>
+                                    <th style="padding-right: 8px;">dateFinFormation</th>
+                                    <th style="padding-right: 8px;">fraisFormation</th>
+                                    <th>Actions</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for entity in entities %}
+                                    <tr>
+
+                                        <td>{{ entity.libelleFormation }}</td>
+                                        <td>{{ entity.grade }}</td>
+                                        <td>{% if entity.dateDebutFormation %}{{ entity.dateDebutFormation|date('Y-m-d') }}{% endif %}</td>
+                                        <td>{% if entity.dateFinFormation %}{{ entity.dateFinFormation|date('Y-m-d') }}{% endif %}</td>
+                                        <td>{{ entity.fraisFormation }}</td>
+
+                                        <td>
+                                            
+                                                    <a href="{{path('affichageFormation_show', {'idFormation': entity.idFormation }) }}" class="btn btn-success">afficher</a>
+                                                    
+                                                    
+
+                                            
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div  class="tab-pane fade" id="tab3" ><!-- Arbitre-->
+
+                        <table id="odd1"   data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1"  data-sort-name="name" data-sort-order="desc">
+
+                            <thead>
+                                <tr>
+
+                                    <th style="padding-right: 12px;">Libelle</th>
+                                    <th style="padding-right: 12px;">Date de debut</th>
+                                    <th style="padding-right: 12px;">Lieu</th>
+                                    
+                                    <th style="padding-right: 12px;">Frais de Participation</th>
+                                    <th style="padding-right: 12px;">Date debut de depot</th>
+                                   
+                                    <th style="padding-right: 12px;">Type</th>
+                                    <th>actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for entity in entities2 %}
+                                    <tr>
+
+                                        <td>{{ entity.libelleConcour }}</td>
+                                        <td>{% if entity.dateDebutConcour %}{{ entity.dateDebutConcour|date('Y-m-d') }}{% endif %}</td>
+
+                                        <td>{{ entity.lieuConcour }}</td>
+                                     
+                                        <td>{{ entity.fraisParticipation }}</td>
+                                        <td>{% if entity.dateDebutDepot %}{{ entity.dateDebutDepot|date('Y-m-d') }}{% endif %}</td>
+                                      
+                                        <td>{{ entity.typeConcour }}</td>
+                                        <td>
+                                           
+                                                    <a  href="{{ path('affichageConcours', { 'idConcour': entity.idConcour }) }}" class="label label-success">Afficher</a>
+                                                
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+                
+
+{% endblock %}
+{% block jscript %}
+    <script src="{{asset('bundles/squadftt/js/jquery-1.11.1.min.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/chart.min.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/chart-data.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/easypiechart.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/easypiechart-data.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/bootstrap-datepicker.js')}}"></script>
+    <script src="{{asset('bundles/squadftt/js/jquery-dateFormat.js')}}"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/notify.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/notify.js')}}"></script>
+    
+   
+
+{% endblock %}
+
+
+
+
+{% block first2 %}{% endblock %}    
+{% block first3 %}{% endblock %}    
+{% block first4 %}{% endblock %}    
+{% block second1 %}{% endblock %}    
+{% block third1 %}{% endblock %}    
+{% block third2 %}{% endblock %}
+{% block third3 %}{% endblock %}
+{% block third4 %}{% endblock %}
+{% block fourth1 %}{% endblock %}
+{% block fourth2 %}{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'frontofficefrontBundle::MainLayout.html.twig' %}
+
+{% block main %}
+
+
+    {% for entity in entities%}
+        <section id="news" class="container secondary-page">
+            
+            <div class="lnk-menu">
+
+                    <div class="col-md-12 news-page " >
+
+                        <img src="{{ asset( 'uploads/'~entity.imgClub) }}" width="270*180" class="img-djoko" >  </img> 
+
+
+                        <div class="col-md-10 data-news-pg">
+                            <p class="news-dd">{{entity.libelleClub}}</p>
+                            <h3>Ce Club se trouve à : {{entity.emplacementClub}}</h3>
+                            <h4> Nombre de Terrains : {{entity.nbreTerrains}}</h4>
+                            <p>
+                                {{entity.descriptionClub}}</p>
+
+                            <div class="col-md-12 news-more"><a href="{{path('frontofficefront_details_clubs',{'id':entity.idClub})}}" class="ca-more"><i class="fa fa-angle-double-right"></i>Afficher la suite...</a></div>
+                        </div>
+                    </div>
+            {% endfor %}
+
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+frontofficefront_homepage:
+    path:     /
+    defaults: { _controller: frontofficefrontBundle:Default:index }
+frontofficefront_evenement:
+    path:     /evenement
+    defaults: { _controller: frontofficefrontBundle:Evenement:index }
+frontofficefront_login:
+    path:     /login
+    defaults: { _controller: frontofficefrontBundle:Evenement:login }
+frontofficefront_inscription:
+    path:     /inscription
+    defaults: { _controller: frontofficefrontBundle:Inscription:inscription }
+ajouter_fan:
+    path:    /ajouter
+    defaults: { _controller: frontofficefrontBundle:Inscription:ajouter }
+    
+frontofficefront_joueur_show:
+    path:     /joueur/{cin}/joueur_show
+    defaults: { _controller: frontofficefrontBundle:Joueur:show }
+frontofficefront_joueur:
+    path:     /joueur
+    defaults: { _controller: frontofficefrontBundle:Joueur:index }
+frontofficefront_articles_show:
+    path:     /article/{id}/article_show
+    defaults: { _controller: frontofficefrontBundle:Articles:show }
+frontofficefront_articles:
+    path:     /article
+    defaults: { _controller: frontofficefrontBundle:Articles:index }
+    
+frontofficefront_panier:
+    path:     /panier
+    defaults: { _controller: frontofficefrontBundle:Panier:index }
+frontofficefront_panier_ajouter:
+    path:     /ajouter/{id}
+    defaults: { _controller: frontofficefrontBundle:Panier:ajouter } 
+frontofficefront_panier_supprimer:
+    path:     /supprimer/{id}
+    defaults: { _controller: frontofficefrontBundle:Panier:supprimer }
+frontofficefront_paniers:
+    path:     /paniers
+    defaults: { _controller: frontofficefrontBundle:Panier:acheter }
+frontofficefront_paniersFail:
+    path:     /paniers/warning
+    defaults: { _controller: frontofficefrontBundle:Panier:achatFail } 
+
+frontofficefront_stade:
+    path:     /stadeGallery
+    defaults: { _controller: frontofficefrontBundle:Stade:index }
+
+frontofficefront_stadeMap:
+    path:     /{id}/stadeMaps
+    defaults: { _controller: frontofficefrontBundle:Stade:stadeMap }
+    
+    
+frontofficefront_news:
+    path:     /news
+    defaults: { _controller: frontofficefrontBundle:Default:actualites }
+
+frontofficefront_news_show:
+    path:     /news/{id}/show
+    defaults: { _controller: frontofficefrontBundle:Default:show }
+
+frontofficefront_clubs:
+    path:     /clubs
+    defaults: { _controller: frontofficefrontBundle:Club:listeclubs }
+
+frontofficefront_details_clubs:
+    path:     /clubs/{id}/afficherClubs
+    defaults: { _controller: frontofficefrontBundle:Club:afficherClubs }
+    
+frontofficefront_matchtennis:
+    resource: "@frontofficefrontBundle/Resources/config/routing/matchtennis.yml"
+    prefix:   /matchtennis
+
+arbitre_route:
+    resource: "@frontofficefrontBundle/Resources/config/routing/arbitre.yml"
+    prefix:   /arbitre
+    
+medecin_route:
+    resource: "@frontofficefrontBundle/Resources/config/routing/medecin.yml"
+    prefix:   /medecin
